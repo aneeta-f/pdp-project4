@@ -1,0 +1,4 @@
+load birds.png
+dither 2 essence
+save a.png
+q

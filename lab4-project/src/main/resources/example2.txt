@@ -1,0 +1,11 @@
+load birds.png
+dither 2 essence
+save a.png
+load goat.png
+blur
+save goat-blur.png
+load goat.png
+pixelate 50
+pattern
+save goat-pattern.txt
+q
