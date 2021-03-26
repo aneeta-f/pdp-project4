@@ -1,7 +1,6 @@
 package picture.editor.command;
 
 import picture.editor.IEnhancedImageBuilder;
-import picture.editor.model.EColorDensity;
 
 public class DitherCommand extends ACommand{
     final boolean isEssence;
@@ -14,7 +13,7 @@ public class DitherCommand extends ACommand{
 
     @Override
     public String execute() {
-        enhancedImageBuilder.addColorDensity(EColorDensity.REDUCE, isEssence, totalColors);
+        enhancedImageBuilder.addDither(isEssence, totalColors);
         return "";
     }
 }

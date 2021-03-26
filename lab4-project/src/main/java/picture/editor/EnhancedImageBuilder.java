@@ -1,9 +1,5 @@
 package picture.editor;
 
-import picture.editor.algorithm.dither.FloydSteinbergDither;
-import picture.editor.algorithm.chunking.Mosaic;
-import picture.editor.algorithm.chunking.Pixelation;
-import picture.editor.model.EColorDensity;
 import picture.editor.model.EColorTransformation;
 import picture.editor.model.EFilterType;
 import picture.editor.model.Image;
@@ -58,9 +54,9 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder{
         return this;
     }
 
-    public EnhancedImageBuilder addColorDensity(final EColorDensity eColorDensity, final boolean isEssence, final int totalColors){
+    public EnhancedImageBuilder addDither(final boolean isEssence, final int totalColors){
 
-        this.operations.add(new ImageColorDensity(image, eColorDensity, new FloydSteinbergDither(isEssence, totalColors)));
+        this.operations.add(new ImageDither(image, isEssence, totalColors));
         return this;
     }
 
@@ -89,8 +85,6 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder{
         if(this.image == null){
             throw new IllegalArgumentException("Unable to save null image.");
         }
-        //String outPutFilename = fileName+FileUtils.getFileNameFromPath(this.imgFilePath);
-        //String outputFilePath = FileUtils.getDirFromPath(this.imgFilePath)+ File.separator+outPutFilename;
         ImageUtilities.writeImage(this.image.getRgbMatrix(), this.image.getImageWidth(), this.image.getImageHeight(), fileName);
         return this;
     }

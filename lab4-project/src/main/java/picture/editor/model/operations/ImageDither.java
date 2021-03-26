@@ -1,17 +1,24 @@
-package picture.editor.algorithm.dither;
-
+package picture.editor.model.operations;
+import picture.editor.model.EOperationType;
 import picture.editor.model.Image;
 import picture.editor.utils.ImageUtilities;
 
 import java.util.Map;
 
-public class FloydSteinbergDither implements IDither{
-    private boolean isEssence;
-    private int totalColors;
+public class ImageDither extends AImageOperation {
+    protected final Image inputImage;
+    private final boolean isEssence;
+    private final int totalColors;
 
-    public FloydSteinbergDither(boolean isEssence, int totalColors) {
+    public ImageDither(Image inputImage, boolean isEssence, int totalColors) {
+        this.inputImage = inputImage;
         this.isEssence = isEssence;
         this.totalColors = totalColors;
+    }
+
+    @Override
+    public EOperationType getOperationType() {
+        return EOperationType.DITHER;
     }
 
     private void increasePixelValueBy(int col, int row, int[][]channelMatrix, float value) {
@@ -41,8 +48,14 @@ public class FloydSteinbergDither implements IDither{
     }
 
     @Override
-    public void execute(Image image) {
-        final Map<ImageUtilities.Channel, int[][]> channelMap = image.convertImageInChannelMap();
+    public void preProcessing() {
+
+    }
+
+
+    @Override
+    public void executeOperation() {
+        final Map<ImageUtilities.Channel, int[][]> channelMap = this.inputImage.convertImageInChannelMap();
         for(Map.Entry<ImageUtilities.Channel, int[][]> entry : channelMap.entrySet()){
             int[][] channelMatrix = entry.getValue();
             int height = channelMatrix.length;
@@ -64,6 +77,11 @@ public class FloydSteinbergDither implements IDither{
                 }
             }
         }
-        Image.convertChannelMap2Image(channelMap, image);
+        Image.convertChannelMap2Image(channelMap, this.inputImage);
+    }
+
+    @Override
+    public void postProcessing() {
+        performClamping(inputImage);
     }
 }

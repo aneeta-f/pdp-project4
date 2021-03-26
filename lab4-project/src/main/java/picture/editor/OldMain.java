@@ -1,13 +1,8 @@
 package picture.editor;
 
-import picture.editor.model.EColorDensity;
 import picture.editor.model.EColorTransformation;
 import picture.editor.model.EFilterType;
-import picture.editor.model.Image;
-import picture.editor.utils.FileUtils;
-import picture.editor.utils.ImageUtilities;
 
-import java.io.File;
 import java.io.IOException;
 
 public class OldMain {
@@ -20,25 +15,25 @@ public class OldMain {
             String imageFilePath = args[0];
             EnhancedImageBuilder enhancedImageBuilder1 = new EnhancedImageBuilder(imageFilePath);
             enhancedImageBuilder1
-                    .addColorDensity(EColorDensity.REDUCE, true, 8)
+                    .addDither(true, 8)
                     .build()
                     .saveImage("8_values_per_channel_with_essence_");
 
             EnhancedImageBuilder enhancedImageBuilder2 = new EnhancedImageBuilder(imageFilePath);
             enhancedImageBuilder2
-                    .addColorDensity(EColorDensity.REDUCE, false, 8)
+                    .addDither(false, 8)
                     .build()
                     .saveImage("8_values_per_channel_");
 
             EnhancedImageBuilder enhancedImageBuilder3 = new EnhancedImageBuilder(imageFilePath);
             enhancedImageBuilder3
-                    .addColorDensity(EColorDensity.REDUCE, true, 2)
+                    .addDither( true, 2)
                     .build()
                     .saveImage("2_values_per_channel_with_essence_");
 
             EnhancedImageBuilder enhancedImageBuilder4 = new EnhancedImageBuilder(imageFilePath);
             enhancedImageBuilder4
-                    .addColorDensity(EColorDensity.REDUCE, false, 2)
+                    .addDither( false, 2)
                     .build()
                     .saveImage("2_values_per_channel_");
 

@@ -3,7 +3,7 @@ package picture.editor.model;
 public enum  EOperationType {
     FILTER ("Image Filter"),
     COLOR_TRANSFORMATION ("Color Transformation"),
-    COLOR_DENSITY("Color Density"),
+    DITHER("Image Dither"),
     MOSAIC("Image Mosaic"),
     PATTERN_GEN("Pattern Generation"),
     PIXELATION("Image Pixelation");

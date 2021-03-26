@@ -1,6 +1,5 @@
 package picture.editor;
 
-import picture.editor.model.EColorDensity;
 import picture.editor.model.EColorTransformation;
 import picture.editor.model.EFilterType;
 
@@ -18,7 +17,7 @@ public class MockEnhancedImageBuilder implements IEnhancedImageBuilder{
     }
 
     @Override
-    public EnhancedImageBuilder addColorDensity(EColorDensity eColorDensity, boolean isEssence, int totalColors) {
+    public EnhancedImageBuilder addDither(boolean isEssence, int totalColors) {
         return null;
     }
 
