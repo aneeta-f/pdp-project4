@@ -2,7 +2,7 @@ package picture.editor.algorithm.chunking;
 
 import picture.editor.model.EChunkingStrategy;
 import picture.editor.model.Image;
-import picture.editor.utils.PixelImpl;
+import picture.editor.utils.Pixel;
 
 import java.util.*;
 
@@ -13,24 +13,24 @@ public class Mosaic implements IChunkingStrategy {
         this.seeds = seeds;
     }
 
-    private double euclideanCalculator(int column, int row, PixelImpl centroid) {
+    private double euclideanCalculator(int column, int row, Pixel centroid) {
         double x = Math.pow(column - centroid.getX(), 2);
         double y = Math.pow(row - centroid.getY(), 2);
         return Math.sqrt(x + y);
     }
 
-    private List<PixelImpl> getCentroids(Image image, final int seeds) {
-        List<PixelImpl> centroids = new ArrayList<>();
+    private List<Pixel> getCentroids(Image image, final int seeds) {
+        List<Pixel> centroids = new ArrayList<>();
         Random rand = new Random();
         int randX = rand.nextInt(image.getImageWidth());
         int randY = rand.nextInt(image.getImageHeight());
-        PixelImpl randomPixel = new PixelImpl(randX, randY, image.getRgbMatrix()[randY][randX]);
+        Pixel randomPixel = new Pixel(randX, randY, image.getRgbMatrix()[randY][randX]);
         centroids.add(randomPixel);
         while (centroids.size() != seeds) {
             randX = rand.nextInt(image.getImageWidth());
             randY = rand.nextInt(image.getImageHeight());
-            randomPixel = new PixelImpl(randX, randY, image.getRgbMatrix()[randY][randX]);
-            for (PixelImpl p : centroids) {
+            randomPixel = new Pixel(randX, randY, image.getRgbMatrix()[randY][randX]);
+            for (Pixel p : centroids) {
                 if (!(randomPixel.getX() == p.getX() && randomPixel.getY() == p.getY())) {
                     centroids.add(randomPixel);
                     break;
@@ -50,7 +50,7 @@ public class Mosaic implements IChunkingStrategy {
         } else if (seeds == width * height) {
             return;
         }
-        List<PixelImpl> centroids = getCentroids(image, seeds);
+        List<Pixel> centroids = getCentroids(image, seeds);
         for (int row = 0; row < height; row++) {
             for (int column = 0; column < width; column++) {
                 ArrayList<Double> distances = new ArrayList<>();
