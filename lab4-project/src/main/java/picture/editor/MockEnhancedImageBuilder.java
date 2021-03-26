@@ -33,6 +33,16 @@ public class MockEnhancedImageBuilder implements IEnhancedImageBuilder{
     }
 
     @Override
+    public EnhancedImageBuilder addChunkingStrategyMosaic(int seeds) {
+        return null;
+    }
+
+    @Override
+    public EnhancedImageBuilder addChunkingStrategyPixelation(int square) {
+        return null;
+    }
+
+    @Override
     public EnhancedImageBuilder build() {
         return null;
     }

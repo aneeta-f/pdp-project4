@@ -4,8 +4,9 @@ public enum  EOperationType {
     FILTER ("Image Filter"),
     COLOR_TRANSFORMATION ("Color Transformation"),
     COLOR_DENSITY("Color Density"),
-    CHUNKING("Image Chunking"),
-    PATTERN_GEN("Pattern Generation");
+    MOSAIC("Image Mosaic"),
+    PATTERN_GEN("Pattern Generation"),
+    PIXELATION("Image Pixelation");
 
     private final String value;
 

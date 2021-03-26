@@ -61,6 +61,17 @@ public class EnhancedImageController {
                 case SHARP:
                     aCommand = new SharpCommand(model);
                     break;
+                case MOSAIC:
+                    final int seeds = scan.nextInt();
+                    aCommand = new MosaicCommand(model, seeds);
+                    break;
+                case PIXELATE:
+                    final int squares = scan.nextInt();
+                    aCommand = new PixelateCommand(model, squares);
+                    break;
+                case PATTERN:
+                    aCommand = new PatternCommand(model);
+                    break;
                 case DITHER:
                     final int totalColors = scan.nextInt();
                     final String essence = scan.next();

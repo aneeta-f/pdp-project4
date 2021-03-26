@@ -17,5 +17,9 @@ public interface IEnhancedImageBuilder {
 
     EnhancedImageBuilder saveImage(String fileName) throws IllegalArgumentException, IOException;
 
+    EnhancedImageBuilder addChunkingStrategyMosaic(final int seeds);
+
+    EnhancedImageBuilder addChunkingStrategyPixelation(final int square);
+
     EnhancedImageBuilder build();
 }

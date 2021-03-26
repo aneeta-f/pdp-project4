@@ -33,8 +33,7 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder{
         if(!FileUtils.isFileExist(imgFilePath)){
             throw new IllegalArgumentException("Error: Provided file is not exist - " + imgFilePath);
         }
-        Image image = new Image(imgFilePath);
-        return image;
+        return new Image(imgFilePath);
     }
 
     public EnhancedImageBuilder loadImage(final String imgFilePath) throws IOException {
@@ -66,12 +65,12 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder{
     }
 
     public EnhancedImageBuilder addChunkingStrategyMosaic(final int seeds){
-        this.operations.add(new ImageChunking(image, new Mosaic(seeds)));
+        this.operations.add(new ImageMosaic(image, seeds));
         return this;
     }
 
     public EnhancedImageBuilder addChunkingStrategyPixelation(final int square){
-        this.operations.add(new ImageChunking(image, new Pixelation(square)));
+        this.operations.add(new ImagePixelation(image,square));
         return this;
     }
 

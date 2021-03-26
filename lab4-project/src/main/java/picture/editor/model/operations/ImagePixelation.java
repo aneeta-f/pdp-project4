@@ -1,17 +1,17 @@
 package picture.editor.model.operations;
 
 import picture.editor.algorithm.chunking.IChunkingStrategy;
+import picture.editor.algorithm.chunking.Pixelation;
 import picture.editor.model.EOperationType;
 import picture.editor.model.Image;
 
-public class ImageChunking extends AImageOperation {
-
+public class ImagePixelation extends AImageOperation{
     private final Image inputImage;
     private final IChunkingStrategy chunkingStrategy;
 
-    public ImageChunking(Image inputImage, IChunkingStrategy chunkingStrategy) {
+    public ImagePixelation(Image inputImage, final int squares) {
         this.inputImage = inputImage;
-        this.chunkingStrategy = chunkingStrategy;
+        chunkingStrategy = new Pixelation(squares);
     }
 
     @Override
@@ -21,16 +21,17 @@ public class ImageChunking extends AImageOperation {
 
     @Override
     public void executeOperation() {
-
+        chunkingStrategy.execute(this.inputImage);
     }
 
     @Override
     public void postProcessing() {
-
+        performClamping(inputImage);
     }
 
     @Override
     public EOperationType getOperationType() {
-        return EOperationType.CHUNKING;
+        return EOperationType.PIXELATION;
     }
 }
+
