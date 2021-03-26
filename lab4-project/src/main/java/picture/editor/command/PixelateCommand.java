@@ -12,7 +12,7 @@ public class PixelateCommand extends ACommand{
 
     @Override
     public String execute() {
-        enhancedImageBuilder.addChunkingStrategyPixelation(this.squares);
+        enhancedImageBuilder.addPixelation(this.squares);
         return "";
     }
 }

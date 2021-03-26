@@ -6,19 +6,19 @@ import picture.editor.model.EFilterType;
 import java.io.IOException;
 
 public interface IEnhancedImageBuilder {
-    EnhancedImageBuilder loadImage(final String imgFilePath) throws IOException;
+    IEnhancedImageBuilder loadImage(final String imgFilePath) throws IOException;
 
-    EnhancedImageBuilder addFilter(final EFilterType eFilterType);
+    IEnhancedImageBuilder addFilter(final EFilterType eFilterType);
 
-    EnhancedImageBuilder addDither(final boolean isEssence, final int totalColors);
+    IEnhancedImageBuilder addDither(final boolean isEssence, final int totalColors);
 
-    EnhancedImageBuilder addColorTransformation(final EColorTransformation eColorTransformation);
+    IEnhancedImageBuilder addColorTransformation(final EColorTransformation eColorTransformation);
 
-    EnhancedImageBuilder saveImage(String fileName) throws IllegalArgumentException, IOException;
+    IEnhancedImageBuilder saveImage(String fileName) throws IllegalArgumentException, IOException;
 
-    EnhancedImageBuilder addChunkingStrategyMosaic(final int seeds);
+    IEnhancedImageBuilder addMosaic(final int seeds);
 
-    EnhancedImageBuilder addChunkingStrategyPixelation(final int square);
+    IEnhancedImageBuilder addPixelation(final int square);
 
-    EnhancedImageBuilder build();
+    IEnhancedImageBuilder build();
 }

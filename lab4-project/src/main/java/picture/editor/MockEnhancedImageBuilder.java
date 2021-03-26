@@ -5,44 +5,60 @@ import picture.editor.model.EFilterType;
 
 import java.io.IOException;
 
-public class MockEnhancedImageBuilder implements IEnhancedImageBuilder{
-    @Override
-    public EnhancedImageBuilder loadImage(String imgFilePath) throws IOException {
-        return null;
+public class MockEnhancedImageBuilder implements IEnhancedImageBuilder {
+    private StringBuilder log;
+    private final int uniqueCode;
+
+    public MockEnhancedImageBuilder(StringBuilder log, int uniqueCode) {
+        this.log = log;
+        this.uniqueCode = uniqueCode;
     }
 
     @Override
-    public EnhancedImageBuilder addFilter(EFilterType eFilterType) {
-        return null;
+    public IEnhancedImageBuilder loadImage(String imgFilePath) throws IOException {
+        log.append("Input Image: " + imgFilePath + "\n");
+        return this;
     }
 
     @Override
-    public EnhancedImageBuilder addDither(boolean isEssence, int totalColors) {
-        return null;
+    public IEnhancedImageBuilder addFilter(EFilterType eFilterType) {
+        log.append("Adding Filter: " + eFilterType.name() + "\n");
+        return this;
     }
 
     @Override
-    public EnhancedImageBuilder addColorTransformation(EColorTransformation eColorTransformation) {
-        return null;
+    public IEnhancedImageBuilder addDither(boolean isEssence, int totalColors) {
+        log.append("Adding Dither, total colors: " + totalColors + " essence: " + isEssence + "\n");
+        return this;
     }
 
     @Override
-    public EnhancedImageBuilder saveImage(String fileName) throws IllegalArgumentException, IOException {
-        return null;
+    public IEnhancedImageBuilder addColorTransformation(EColorTransformation eColorTransformation) {
+        log.append("Adding Color Transformation: " + eColorTransformation.name() + "\n");
+        return this;
     }
 
     @Override
-    public EnhancedImageBuilder addChunkingStrategyMosaic(int seeds) {
-        return null;
+    public IEnhancedImageBuilder saveImage(String fileName) throws IllegalArgumentException, IOException {
+        log.append("Saving image: " + fileName + "\n");
+        return this;
     }
 
     @Override
-    public EnhancedImageBuilder addChunkingStrategyPixelation(int square) {
-        return null;
+    public IEnhancedImageBuilder addMosaic(int seeds) {
+        log.append("Adding mosaic with seeds: " + seeds + "\n");
+        return this;
     }
 
     @Override
-    public EnhancedImageBuilder build() {
-        return null;
+    public IEnhancedImageBuilder addPixelation(int square) {
+        log.append("Adding pixelation with squares: " + square + "\n");
+        return this;
+    }
+
+    @Override
+    public IEnhancedImageBuilder build() {
+        log.append("Building enhanced image: " + "\n");
+        return this;
     }
 }

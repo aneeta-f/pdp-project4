@@ -14,7 +14,7 @@ public class MosaicCommand extends ACommand{
     @Override
     public String execute() {
         try {
-            enhancedImageBuilder.addChunkingStrategyMosaic(seeds);
+            enhancedImageBuilder.addMosaic(seeds);
         }catch (IllegalArgumentException e) {
             return e.getMessage();
         }
