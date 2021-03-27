@@ -13,7 +13,7 @@ public class MockEnhancedImageBuilder implements IEnhancedImageBuilder {
   private final int uniqueCode;
 
   /**
-   * Parametrized constructor that accepts.
+   * Parameterized constructor that accepts.
    *
    * @param log        String builder of the purpose of logs
    * @param uniqueCode code

@@ -1,6 +1,5 @@
 package picture.editor;
 
-import picture.editor.command.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,6 +9,19 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Scanner;
+
+import picture.editor.command.ACommand;
+import picture.editor.command.BlurCommand;
+import picture.editor.command.CommandType;
+import picture.editor.command.DitherCommand;
+import picture.editor.command.GreyCommand;
+import picture.editor.command.MosaicCommand;
+import picture.editor.command.PatternCommand;
+import picture.editor.command.PixelateCommand;
+import picture.editor.command.SaveCommand;
+import picture.editor.command.SepiaCommand;
+import picture.editor.command.SharpCommand;
+import picture.editor.command.UploadCommand;
 
 /**
  * This class is controller class responsible for handling all the user provided commands.

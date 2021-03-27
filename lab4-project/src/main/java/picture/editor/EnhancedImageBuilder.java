@@ -3,7 +3,12 @@ package picture.editor;
 import picture.editor.model.EColorTransformation;
 import picture.editor.model.EFilterType;
 import picture.editor.model.Image;
-import picture.editor.model.operations.*;
+import picture.editor.model.operations.AImageOperation;
+import picture.editor.model.operations.ImageColorTransformation;
+import picture.editor.model.operations.ImageDither;
+import picture.editor.model.operations.ImageFilter;
+import picture.editor.model.operations.ImageMosaic;
+import picture.editor.model.operations.ImagePixelation;
 import picture.editor.utils.FileUtils;
 import picture.editor.utils.ImageUtilities;
 
