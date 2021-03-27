@@ -117,7 +117,10 @@ public class EnhancedImageController {
         case QUIT:
           scan.close();
           return;
+        case UNKNOWN:
         default:
+          //I am not throwing unsuported exception here because I don't want to exit my scan here.
+          //want to give next try to user.
           this.out.append(String.format("'%s' is unsupported.\n", command));
       }
 
