@@ -67,7 +67,7 @@ public class EnhancedImageController {
       String command = scan.next();
       Optional<CommandType> optCommandType = Arrays.stream(
               CommandType.values()).filter(
-              commandType -> commandType.getValue().equalsIgnoreCase(command)).findFirst();
+                commandType -> commandType.getValue().equalsIgnoreCase(command)).findFirst();
 
       CommandType commandType = CommandType.UNKNOWN;
       if (optCommandType.isPresent()) {

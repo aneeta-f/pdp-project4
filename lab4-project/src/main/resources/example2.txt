@@ -1,11 +1,24 @@
-load birds.png
-dither 2 essence
-save a.png
-load goat.png
+upload Lenna.png
 blur
-save goat-blur.png
-load goat.png
-pixelate 50
-pattern
-save goat-pattern.txt
+save blur_Lenna.png
+
+upload Lenna.png
+sharp
+save sharp_Lenna.png
+
+upload Lenna.png
+mosaic 570
+save mosaic_570_Lenna.png
+
+upload Lenna.png
+mosaic 6600
+save mosaic_6600_Lenna.png
+
+upload Lenna.png
+mosaic 6600
+save mosaic_6600_Lenna.png
+
+upload Lenna.png
+mosaic 1650
+save mosaic_1650_Lenna.png
 q

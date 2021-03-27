@@ -29,5 +29,9 @@ public class Pixelation implements IChunkingStrategy {
     if (image == null) {
       throw new IllegalArgumentException("Image cannot be null.");
     }
+ 
+    if (this.squares < 0) {
+      throw new IllegalArgumentException("Squares cannot be null.");
+    }
   }
 }

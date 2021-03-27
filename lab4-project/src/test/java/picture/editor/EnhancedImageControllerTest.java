@@ -89,7 +89,7 @@ public class EnhancedImageControllerTest {
   }
 
   /**
-   * This function is responsible for testing unknownCommandTest
+   * This function is responsible for testing unknownCommandTest.
    */
   @Test
   public void unknownCommandTest() {

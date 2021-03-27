@@ -1,0 +1,29 @@
+upload birds.png
+dither 2 essence
+save dither_2_essence_birds.png
+
+
+upload birds.png
+dither 8 essence
+save dither_8_essence_birds.png
+
+upload birds.png
+mosaic 570
+save mosaic_570_birds.png
+
+upload birds.png
+mosaic 6600
+save mosaic_6600_birds.png
+
+upload birds.png
+mosaic 6600
+save mosaic_6600_birds.png
+
+upload birds.png
+mosaic 1650
+save mosaic_1650_birds.png
+
+upload birds.png
+sepia
+save sepia_birds.png
+q
