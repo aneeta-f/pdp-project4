@@ -1,10 +1,14 @@
 package picture.editor.algorithm.chunking;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 import picture.editor.model.EChunkingStrategy;
 import picture.editor.model.Image;
 import picture.editor.utils.Pixel;
 
-import java.util.*;
 
 /**
  * The class represents a Mosaic that implements IChunkingStrategy. A EnhancedImageBuilder 

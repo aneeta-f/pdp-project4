@@ -17,13 +17,16 @@ public class Pixelation implements IChunkingStrategy {
     this.squares = squares;
   }
 
-  @Override
-  public void execute(Image image) {
-
-  }
 
   @Override
   public EChunkingStrategy getChunkingStrategy() {
     return EChunkingStrategy.PIXELATION;
+  }
+
+
+  @Override
+  public void execute(Image image) {
+    // TODO Auto-generated method stub
+    
   }
 }
