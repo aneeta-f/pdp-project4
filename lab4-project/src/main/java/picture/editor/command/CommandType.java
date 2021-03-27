@@ -1,7 +1,7 @@
 package picture.editor.command;
 
 public enum CommandType {
-    LOAD("load"),
+    UPLOAD("upload"),
     SAVE("save"),
 
     BLUR("blur"),

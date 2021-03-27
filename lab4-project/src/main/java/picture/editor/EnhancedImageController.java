@@ -41,9 +41,9 @@ public class EnhancedImageController {
 
             ACommand aCommand = null;
             switch (commandType) {
-                case LOAD:
+                case UPLOAD:
                     imageFilePath = scan.next();
-                    aCommand = new LoadCommand(model, imageFilePath);
+                    aCommand = new UploadCommand(model, imageFilePath);
                     break;
                 case SAVE:
                     imageFilePath = scan.next();
