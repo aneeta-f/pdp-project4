@@ -8,10 +8,12 @@ import picture.editor.model.Image;
  * IPatternGenStrategy. 
  */
 public class ClosestColor implements IPatternGenStrategy {
-  
+
   @Override
   public void execute(Image image) {
-    System.out.println("Coming soon" + image.getImageHeight());
+    if (image == null) {
+      throw new IllegalArgumentException("Image cannot be null.");
+    }
   }
 
   @Override

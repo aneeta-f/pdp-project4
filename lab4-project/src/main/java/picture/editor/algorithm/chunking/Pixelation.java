@@ -12,7 +12,7 @@ public class Pixelation implements IChunkingStrategy {
 
   /**
    * Construct a Pixelation object that has a provided squares.
-   * 
+   *
    * @param squares The total squares given to this Pixelation.
    */
   public Pixelation(int squares) {
@@ -26,6 +26,8 @@ public class Pixelation implements IChunkingStrategy {
 
   @Override
   public void execute(Image image) {
-    System.out.println(squares);    
+    if (image == null) {
+      throw new IllegalArgumentException("Image cannot be null.");
+    }
   }
 }

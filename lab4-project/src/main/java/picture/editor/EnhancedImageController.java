@@ -67,7 +67,7 @@ public class EnhancedImageController {
       String command = scan.next();
       Optional<CommandType> optCommandType = Arrays.stream(
               CommandType.values()).filter(
-                commandType -> commandType.getValue().equalsIgnoreCase(command)).findFirst();
+              commandType -> commandType.getValue().equalsIgnoreCase(command)).findFirst();
 
       CommandType commandType = CommandType.UNKNOWN;
       if (optCommandType.isPresent()) {
@@ -130,6 +130,7 @@ public class EnhancedImageController {
 
   /**
    * This represent the main body of the class.
+   *
    * @param args the arguments.
    */
   public static void main(String[] args) {
@@ -163,7 +164,7 @@ public class EnhancedImageController {
 
       // Start controller
       enhancedImageController.start(enhancedImageBuilder);
-    } catch (Exception e) {
+    } catch (IOException e) {
       e.printStackTrace();
     }
   }

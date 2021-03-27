@@ -31,7 +31,9 @@ public class ImageMosaic extends AImageOperation {
 
   @Override
   public void preProcessing() {
-    System.out.println("Performing pre processing");
+    if (chunkingStrategy == null) {
+      throw new IllegalArgumentException("Chunking strategy cannot be null.");
+    }
   }
 
   @Override

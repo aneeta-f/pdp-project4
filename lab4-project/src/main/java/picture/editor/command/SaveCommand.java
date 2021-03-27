@@ -2,6 +2,8 @@ package picture.editor.command;
 
 import picture.editor.IEnhancedImageBuilder;
 
+import java.io.IOException;
+
 /**
  * This class represent the SaveCommand that extends 
  * ACommand. A SaveCommand has a imageFilePath.
@@ -12,11 +14,11 @@ public class SaveCommand extends ACommand {
 
 
   /**
-   * Construct the SaveCommand object that accepts 
+   * Construct the SaveCommand object that accepts
    * enhancedImageBuilder and imageFilePath.
-   * 
-   * @param enhancedImageBuilder The enhancedImageBuilder given to this SaveCommand 
-   * @param imageFilePath The imageFilePath given to this SaveCommand
+   *
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this SaveCommand
+   * @param imageFilePath        The imageFilePath given to this SaveCommand
    */
   public SaveCommand(final IEnhancedImageBuilder enhancedImageBuilder, final String imageFilePath) {
     super(enhancedImageBuilder);
@@ -28,9 +30,10 @@ public class SaveCommand extends ACommand {
     try {
       enhancedImageBuilder.build();
       enhancedImageBuilder = enhancedImageBuilder.saveImage(imageFilePath);
-    } 
-    catch (Exception e) {
-      return "Failed to save image: " + this.imageFilePath + "\n";
+    } catch (IllegalArgumentException e) {
+      return e.getMessage();
+    } catch (IOException e) {
+      return "Failed to save image: " + this.imageFilePath + "\n" + e.getMessage();
     }
     return "";
   }

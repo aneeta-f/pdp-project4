@@ -56,7 +56,7 @@ public abstract class AImageOperation {
    *
    * @param image the input image.
    */
-  void performClamping(Image image) {
+  protected void performClamping(Image image) {
     int[][][] rgbMatrix = image.getRgbMatrix();
     for (int i = 0; i < rgbMatrix.length; ++i) {
       for (int j = 0; j < rgbMatrix[0].length; ++j) {
@@ -79,7 +79,7 @@ public abstract class AImageOperation {
    * @param matrix Provided input matrix
    * @return Total number of rows in a matrix
    */
-  int getColumns(final double[][] matrix) {
+  protected int getColumns(final double[][] matrix) {
     return matrix.length;
   }
 
@@ -89,7 +89,7 @@ public abstract class AImageOperation {
    * @param matrix Provided input matrix
    * @return Total number of columns in a matrix
    */
-  int getColumns(final int[][] matrix) {
+  protected int getColumns(final int[][] matrix) {
     return matrix.length;
   }
 
@@ -100,7 +100,7 @@ public abstract class AImageOperation {
    * @return Total number of columns in a matrix
    * @throws IllegalArgumentException Throws exception when provided matrix is empty
    */
-  int getRows(final double[][] matrix) throws IllegalArgumentException {
+  protected int getRows(final double[][] matrix) throws IllegalArgumentException {
     if (matrix.length < 1) {
       throw new IllegalArgumentException("Empty matrix is provided.");
     }
@@ -114,7 +114,7 @@ public abstract class AImageOperation {
    * @return Total number of rows in a matrix
    * @throws IllegalArgumentException Throws exception when provided matrix is empty
    */
-  int getRows(final int[][] matrix) throws IllegalArgumentException {
+  protected int getRows(final int[][] matrix) throws IllegalArgumentException {
     if (matrix.length < 1) {
       throw new IllegalArgumentException("Empty matrix is provided.");
     }

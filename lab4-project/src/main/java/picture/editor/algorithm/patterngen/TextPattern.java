@@ -9,10 +9,12 @@ import picture.editor.model.Image;
  * generating text pattern from the image.
  */
 public class TextPattern implements IPatternGenStrategy {
-  
+
   @Override
   public void execute(Image image) {
-    System.out.println("Coming soon");
+    if (image == null) {
+      throw new IllegalArgumentException("Image cannot be null.");
+    }
   }
 
   @Override

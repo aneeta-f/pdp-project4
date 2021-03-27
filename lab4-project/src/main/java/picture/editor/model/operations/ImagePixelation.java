@@ -32,7 +32,9 @@ public class ImagePixelation extends AImageOperation {
 
   @Override
   public void preProcessing() {
-    System.out.println("Pre processing: Coming soon");
+    if (chunkingStrategy == null) {
+      throw new IllegalArgumentException("Chunking strategy cannot be null.");
+    }
   }
 
   @Override
@@ -50,4 +52,3 @@ public class ImagePixelation extends AImageOperation {
     return EOperationType.PIXELATION;
   }
 }
-
