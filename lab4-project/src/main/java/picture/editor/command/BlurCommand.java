@@ -10,7 +10,7 @@ public class BlurCommand extends ACommand {
 
   /**
    * Parameterized constrictor that accepts IEnhancedImageBuilder interface.
-   * @param enhancedImageBuilder
+   * @param enhancedImageBuilder the enhancedImageBuilder given to this BlurCommand.
    */
   public BlurCommand(IEnhancedImageBuilder enhancedImageBuilder) {
     super(enhancedImageBuilder);

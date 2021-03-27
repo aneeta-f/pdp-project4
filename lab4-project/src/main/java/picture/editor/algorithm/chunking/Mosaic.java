@@ -7,49 +7,53 @@ import picture.editor.utils.Pixel;
 import java.util.*;
 
 /**
- * This class is responsible for implementing chunking strategy.
+ * The class represents a Mosaic that implements IChunkingStrategy. A EnhancedImageBuilder 
+ * has a seeds.
+ *
  */
 public class Mosaic implements IChunkingStrategy {
   private final int seeds;
 
   /**
-   * Input seeds.
-   * @param seeds
+   * Construct a Mosaic object that has the provided seeds..
+   *
+   * @param seeds  the seeds to be given to this Mosaic.
+   * 
    */
   public Mosaic(int seeds) {
-      this.seeds = seeds;
+    this.seeds = seeds;
   }
 
   private double euclideanCalculator(int column, int row, Pixel centroid) {
-      double x = Math.pow(column - centroid.getX(), 2);
-      double y = Math.pow(row - centroid.getY(), 2);
-      return Math.sqrt(x + y);
+    double x = Math.pow(column - centroid.getX(), 2);
+    double y = Math.pow(row - centroid.getY(), 2);
+    return Math.sqrt(x + y);
   }
 
   private List<Pixel> getCentroids(Image image, final int seeds) {
-      List<Pixel> centroids = new ArrayList<>();
-      Random rand = new Random();
-      int randX = rand.nextInt(image.getImageWidth());
-      int randY = rand.nextInt(image.getImageHeight());
-      Pixel randomPixel = new Pixel(randX, randY, image.getRgbMatrix()[randY][randX]);
-      centroids.add(randomPixel);
-      while (centroids.size() != seeds) {
-          randX = rand.nextInt(image.getImageWidth());
-          randY = rand.nextInt(image.getImageHeight());
-          randomPixel = new Pixel(randX, randY, image.getRgbMatrix()[randY][randX]);
-          for (Pixel p : centroids) {
-              if (!(randomPixel.getX() == p.getX() && randomPixel.getY() == p.getY())) {
-                  centroids.add(randomPixel);
-                  break;
-              }
-          }
+    List<Pixel> centroids = new ArrayList<>();
+    Random rand = new Random();
+    int randX = rand.nextInt(image.getImageWidth());
+    int randY = rand.nextInt(image.getImageHeight());
+    Pixel randomPixel = new Pixel(randX, randY, image.getRgbMatrix()[randY][randX]);
+    centroids.add(randomPixel);
+    while (centroids.size() != seeds) {
+      randX = rand.nextInt(image.getImageWidth());
+      randY = rand.nextInt(image.getImageHeight());
+      randomPixel = new Pixel(randX, randY, image.getRgbMatrix()[randY][randX]);
+      for (Pixel p : centroids) {
+        if (!(randomPixel.getX() == p.getX() && randomPixel.getY() == p.getY())) {
+          centroids.add(randomPixel);
+          break;
+        }
       }
-      return centroids;
+    }
+    return centroids;
   }
 
   @Override
   public void execute(Image image) {
-        int[][][] imageDeepCopy = image.getRgbMatrix();
+    int[][][] imageDeepCopy = image.getRgbMatrix();
     int height = image.getImageHeight();
     int width = image.getImageWidth();
     if (seeds > width * height || seeds < 1) {

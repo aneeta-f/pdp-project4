@@ -10,10 +10,11 @@ public class UploadCommand extends ACommand {
   private final String imageFilePath;
 
   /**
-   * Parameterized constrictor that accepts following.
-   * @param enhancedImageBuilder
+   * Parameterized constructor that accepts enhancedImageBuilder.
+   * @param enhancedImageBuilder the enhancedImageBuilder given to this UploadCommand
    */
-  public UploadCommand(final IEnhancedImageBuilder enhancedImageBuilder, final String imageFilePath) {
+  public UploadCommand(final IEnhancedImageBuilder enhancedImageBuilder, 
+      final String imageFilePath) {
     super(enhancedImageBuilder);
     this.imageFilePath = imageFilePath;
   }

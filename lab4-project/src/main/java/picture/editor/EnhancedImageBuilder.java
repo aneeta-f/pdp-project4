@@ -12,7 +12,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * This class is responsible for implementing IEnhancedImageBuilder.
+ * The class represents a EnhancedImageBuilder. A EnhancedImageBuilder has a 
+ * list of image operations, imgeFilePath and a image.
+ *
  */
 public class EnhancedImageBuilder implements IEnhancedImageBuilder {
   private final List<AImageOperation> operations;
@@ -20,14 +22,15 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder {
   private Image image;
 
   /**
-   * Default constructor
+   * Construct a default EnhancedImageBuilder object..
+   * 
    */
   public EnhancedImageBuilder() {
     this.operations = new LinkedList<>();
   }
 
   /**
-   * Parameterized constructor to create instance.
+   * Construct a EnhancedImageBuilder object that has the provided imgFilePath..
    *
    * @param imgFilePath Image path
    * @throws IOException can throw reading file.
@@ -55,10 +58,11 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder {
   }
 
   /**
-   * This method call add any provided custom image operation
+   * The addOperation is basically provide the Operations that can be performed in this 
+   * EnhancedImageBuilder.
    *
-   * @param imageOperation Image operation
-   * @return builder instance
+   * @param imageOperation that can be performed in this EnhancedImageBuilder.
+   * @return the IEnhancedImageBuilder of this EnhancedImageBuilder.
    */
   public IEnhancedImageBuilder addOperation(final AImageOperation imageOperation) {
     this.operations.add(imageOperation);
@@ -72,8 +76,8 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder {
   }
 
   @Override
-  public IEnhancedImageBuilder addColorTransformation
-          (final EColorTransformation eColorTransformation) {
+  public IEnhancedImageBuilder addColorTransformation(
+      final EColorTransformation eColorTransformation) {
     this.operations.add(new ImageColorTransformation(image, eColorTransformation));
     return this;
   }

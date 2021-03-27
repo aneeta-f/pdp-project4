@@ -7,25 +7,25 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * This class is represents image model
+ * This class is represents image model.
  */
 public class Image {
   private final int[][][] rgbMatrix;
 
   /**
-   * Parameterized constructor that accepts rgbMatrix
-   * @param rgbMatrix
+   * Parameterized constructor that accepts rgbMatrix.
+   * @param rgbMatrix the rgbMatrix given to this Image
    */
   public Image(int[][][] rgbMatrix) {
-      this.rgbMatrix = rgbMatrix;
+    this.rgbMatrix = rgbMatrix;
   }
 
   /**
-   * Parameterized constructor that accepts image file
-   * @param filename
+   * Parameterized constructor that accepts image file.
+   * @param filename the filename given to this Image
    */
   public Image(String filename) throws IOException {
-      this(ImageUtilities.readImage(filename));
+    this(ImageUtilities.readImage(filename));
   }
 
   /**
@@ -33,12 +33,12 @@ public class Image {
    * @return
    */
   public int[][][] getRgbMatrix() {
-      return rgbMatrix;
+    return rgbMatrix;
   }
 
   /**
    * Return channel matrix.
-   * @param channel
+   * @param channel the channel given to this image
    * @return
    */
   private int[][] getChannelMatrix(ImageUtilities.Channel channel) {
@@ -71,7 +71,7 @@ public class Image {
    * @return
    */
   public int getImageWidth() {
-      return this.rgbMatrix[0].length;
+    return this.rgbMatrix[0].length;
   }
 
   /**
@@ -84,10 +84,12 @@ public class Image {
 
   /**
    * Convert channel map to image.
-   * @param channelMap
-   * @param refOutputImage
+   * @param channelMap the channelMap given to this Image
+   * @param refOutputImage the refOutputImage given to this Image
    */
-  public static void convertChannelMap2Image(Map<ImageUtilities.Channel, int[][]> channelMap, Image refOutputImage) {
+  
+  public static void convertChannelMap2Image(Map<ImageUtilities.Channel, int[][]> 
+      channelMap, Image refOutputImage) {
     int[][][] image = refOutputImage.getRgbMatrix();
     for (Map.Entry<ImageUtilities.Channel, int[][]> entry : channelMap.entrySet()) {
       int[][] channelMatrix = entry.getValue();

@@ -19,8 +19,8 @@ public class ImageFilter extends AImageOperation {
 
   /**
    * Parameterized constructor that accepts following.
-   * @param inputImage
-   * @param eFilterType
+   * @param inputImage the inputImage given to this ImageFilter
+   * @param eFilterType the eFilterType given to this ImageFilter
    */
   public ImageFilter(Image inputImage, EFilterType eFilterType) {
     this.inputImage = inputImage;
@@ -53,7 +53,7 @@ public class ImageFilter extends AImageOperation {
   }
 
   /**
-   * Return filter type
+   * Return filter type.
    * @return
    */
   public EFilterType getFilterType() {
@@ -68,7 +68,8 @@ public class ImageFilter extends AImageOperation {
   private int getPixelValue(final int pixelCol, final int pixelRow, final int[][] channelMatrix) {
     int channelMatrixRows = getRows(channelMatrix);
     int channelMatrixColumns = getColumns(channelMatrix);
-    if (pixelCol < 0 || pixelRow < 0 || pixelRow >= channelMatrixRows || pixelCol >= channelMatrixColumns) {
+    if (pixelCol < 0 || pixelRow < 0 || pixelRow >= channelMatrixRows 
+        || pixelCol >= channelMatrixColumns) {
       return 0;
     } else {
       return channelMatrix[pixelCol][pixelRow];
@@ -124,8 +125,8 @@ public class ImageFilter extends AImageOperation {
 
   /**
    * This method is responsible for validating input kernel.
-   * @param inputKernel
-   * @throws IllegalArgumentException
+   * @param inputKernel the inputKernel given to this ImageFilter
+   * @throws IllegalArgumentException exception when matrix is not square
    */
   protected void validateKernelMatrix(double[][] inputKernel) throws IllegalArgumentException {
 

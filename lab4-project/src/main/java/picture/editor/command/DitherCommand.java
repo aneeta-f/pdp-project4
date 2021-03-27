@@ -10,13 +10,15 @@ public class DitherCommand extends ACommand {
   final int totalColors;
 
   /**
-   * Parameterized constrictor that accepts following.
+   * Parameterized constructor that accepts following.
    *
-   * @param enhancedImageBuilder
-   * @param totalColors
-   * @param isEssence
+   * @param enhancedImageBuilder the enhancedImageBuilder given to this DitherCommand.
+   * @param totalColors the totalColors given to this DitherCommand.
+   * @param isEssence the isEssence given to this DitherCommand.
    */
-  public DitherCommand(IEnhancedImageBuilder enhancedImageBuilder, final int totalColors, final boolean isEssence) {
+  
+  public DitherCommand(IEnhancedImageBuilder enhancedImageBuilder, 
+      final int totalColors, final boolean isEssence) {
     super(enhancedImageBuilder);
     this.isEssence = isEssence;
     this.totalColors = totalColors;

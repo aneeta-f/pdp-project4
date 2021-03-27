@@ -9,10 +9,10 @@ public class PixelateCommand extends ACommand {
   private final int squares;
 
   /**
-   * Parameterized constrictor that accepts following.
+   * Parameterized constructor that accepts following enhancedImageBuilder and squares.
    *
-   * @param enhancedImageBuilder
-   * @param squares
+   * @param enhancedImageBuilder the enhancedImageBuilder given to this PixelateCommand
+   * @param squares the squares given to this PixelateCommand
    */
   public PixelateCommand(IEnhancedImageBuilder enhancedImageBuilder, final int squares) {
     super(enhancedImageBuilder);

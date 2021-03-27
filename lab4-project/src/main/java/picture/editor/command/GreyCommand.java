@@ -6,11 +6,11 @@ import picture.editor.model.EColorTransformation;
 /**
  * This class implements 'grey' command.
  */
-public class GreyCommand extends ACommand{
+public class GreyCommand extends ACommand {
 
   /**
-   * Parameterized constrictor that accepts IEnhancedImageBuilder interface.
-   * @param enhancedImageBuilder
+   * Parameterized constructor that accepts IEnhancedImageBuilder interface.
+   * @param enhancedImageBuilder the enhancedImageBuilder given to this GreyCommand.
    */
   public GreyCommand(IEnhancedImageBuilder enhancedImageBuilder) {
     super(enhancedImageBuilder);

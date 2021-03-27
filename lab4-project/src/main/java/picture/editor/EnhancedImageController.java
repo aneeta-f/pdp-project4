@@ -42,7 +42,9 @@ public class EnhancedImageController {
     while (true) {
 
       String command = scan.next();
-      Optional<CommandType> optCommandType = Arrays.stream(CommandType.values()).filter(commandType -> commandType.getValue().equalsIgnoreCase(command)).findFirst();
+      Optional<CommandType> optCommandType = Arrays.stream(
+          CommandType.values()).filter(
+              commandType -> commandType.getValue().equalsIgnoreCase(command)).findFirst();
 
       CommandType commandType = CommandType.UNKNOWN;
       if (optCommandType.isPresent()) {
@@ -134,7 +136,8 @@ public class EnhancedImageController {
         reader = new InputStreamReader(System.in);
       }
 
-      EnhancedImageController enhancedImageController = new EnhancedImageController(reader, System.out);
+      EnhancedImageController enhancedImageController = new 
+          EnhancedImageController(reader, System.out);
 
       // Start controller
       enhancedImageController.start(enhancedImageBuilder);

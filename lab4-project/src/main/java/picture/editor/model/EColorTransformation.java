@@ -1,7 +1,7 @@
 package picture.editor.model;
 
 /**
- * Performs color transformation
+ * Performs color transformation.
  */
 public enum EColorTransformation {
   GREY_SCALE("Grey Scale"),
@@ -10,7 +10,7 @@ public enum EColorTransformation {
   private final String value;
 
   private EColorTransformation(String value) {
-      this.value = value;
+    this.value = value;
   }
 
   /**
@@ -18,6 +18,6 @@ public enum EColorTransformation {
    * @return value for enum
    */
   public String getValue() {
-        return value;
-    }
+    return value;
+  }
 }

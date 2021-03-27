@@ -18,8 +18,8 @@ public class ImageColorTransformation extends AImageOperation {
   /**
    * Parameterized constructor that accepts following.
    *
-   * @param inputImage
-   * @param eColorTransformation
+   * @param inputImage the inputImage given to this ImageColorTransformation
+   * @param eColorTransformation the eColorTransformation given to this ImageColorTransformation
    */
   public ImageColorTransformation(Image inputImage,
                                 EColorTransformation eColorTransformation) {
@@ -90,7 +90,8 @@ public class ImageColorTransformation extends AImageOperation {
    * @param transformationMatrix Input transformation matrix
    * @throws IllegalArgumentException Throws exception when either row/columns are not 3
    */
-  protected void validateTransformationMatrix(float[][] transformationMatrix) throws IllegalArgumentException {
+  protected void validateTransformationMatrix(float[][] transformationMatrix) 
+      throws IllegalArgumentException {
     int rows = transformationMatrix.length;
     int columns = transformationMatrix[0].length;
 

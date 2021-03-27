@@ -14,8 +14,8 @@ public class ImageMosaic extends AImageOperation {
 
   /**
    * Parameterized constructor that accepts following.
-   * @param inputImage
-   * @param seeds
+   * @param inputImage the inputImage given to this ImageMosaic
+   * @param seeds the seeds given to this ImageMosaic
    */
   public ImageMosaic(Image inputImage, final int seeds) {
     this.inputImage = inputImage;

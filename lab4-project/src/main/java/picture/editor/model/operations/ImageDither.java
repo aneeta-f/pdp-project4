@@ -1,4 +1,5 @@
 package picture.editor.model.operations;
+
 import picture.editor.model.EOperationType;
 import picture.editor.model.Image;
 import picture.editor.utils.ImageUtilities;
@@ -6,7 +7,7 @@ import picture.editor.utils.ImageUtilities;
 import java.util.Map;
 
 /**
- * This class is responsible for perforing dither operation on image
+ * This class is responsible for performing dither operation on image.
  */
 public class ImageDither extends AImageOperation {
   protected final Image inputImage;
@@ -14,10 +15,10 @@ public class ImageDither extends AImageOperation {
   private final int totalColors;
 
   /**
-   * Parameterized constructor that accepts follwoing.
-   * @param inputImage
-   * @param isEssence
-   * @param totalColors
+   * Parameterized constructor that accepts inputImage, isEssence and totalColors.
+   * @param inputImage the inputImage given to the ImageDither
+   * @param isEssence the isEssence given to the ImageDither
+   * @param totalColors the totalColors given to the ImageDither
    */
   public ImageDither(Image inputImage, boolean isEssence, int totalColors) {
     this.inputImage = inputImage;
@@ -43,7 +44,7 @@ public class ImageDither extends AImageOperation {
     float rangeSize = maxColor / totalColors;
 
     if (oldPixel <= 0) {
-        return 0;
+      return 0;
     }
 
     for (int i = 0; i < totalColors; ++i) {
@@ -65,7 +66,8 @@ public class ImageDither extends AImageOperation {
 
   @Override
   public void executeOperation() {
-    final Map<ImageUtilities.Channel, int[][]> channelMap = this.inputImage.convertImageInChannelMap();
+    final Map<ImageUtilities.Channel, int[][]> channelMap = 
+        this.inputImage.convertImageInChannelMap();
     for (Map.Entry<ImageUtilities.Channel, int[][]> entry : channelMap.entrySet()) {
       int[][] channelMatrix = entry.getValue();
       int height = channelMatrix.length;

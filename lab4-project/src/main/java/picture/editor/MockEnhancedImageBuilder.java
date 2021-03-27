@@ -13,7 +13,7 @@ public class MockEnhancedImageBuilder implements IEnhancedImageBuilder {
   private final int uniqueCode;
 
   /**
-   * Parametrized constructor that accepts:
+   * Parametrized constructor that accepts.
    *
    * @param log        String builder of the purpose of logs
    * @param uniqueCode code
@@ -48,7 +48,8 @@ public class MockEnhancedImageBuilder implements IEnhancedImageBuilder {
   }
 
   @Override
-  public IEnhancedImageBuilder saveImage(String fileName) throws IllegalArgumentException, IOException {
+  public IEnhancedImageBuilder saveImage(String fileName) throws 
+      IllegalArgumentException, IOException {
     log.append("Saving image: " + fileName + "\n");
     return this;
   }

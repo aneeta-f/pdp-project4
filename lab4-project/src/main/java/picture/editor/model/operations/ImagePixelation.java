@@ -14,8 +14,8 @@ public class ImagePixelation extends AImageOperation {
 
   /**
    * Parameterized constructor that accepts following.
-   * @param inputImage
-   * @param squares
+   * @param inputImage the inputImage given to this ImagePixelation
+   * @param squares the squares given to this ImagePixelation
    */
   public ImagePixelation(Image inputImage, final int squares) {
     this.inputImage = inputImage;

@@ -4,8 +4,8 @@ package picture.editor.model;
  * Operation type enums.
  */
 public enum  EOperationType {
-  FILTER ("Image Filter"),
-  COLOR_TRANSFORMATION ("Color Transformation"),
+  FILTER("Image Filter"),
+  COLOR_TRANSFORMATION("Color Transformation"),
   DITHER("Image Dither"),
   MOSAIC("Image Mosaic"),
   PATTERN_GEN("Pattern Generation"),

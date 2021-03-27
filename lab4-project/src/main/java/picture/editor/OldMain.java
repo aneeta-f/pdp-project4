@@ -12,7 +12,7 @@ public class OldMain {
   /**
    * Main old for last project.
    *
-   * @param args
+   * @param args the argument given to this class
    */
   public static void main(String[] args) {
     if (args.length < 1) {

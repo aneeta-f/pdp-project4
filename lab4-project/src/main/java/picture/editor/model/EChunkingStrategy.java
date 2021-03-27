@@ -10,7 +10,7 @@ public enum EChunkingStrategy {
   private final String value;
 
   private EChunkingStrategy(String value) {
-      this.value = value;
+    this.value = value;
   }
 
   /**
@@ -18,6 +18,6 @@ public enum EChunkingStrategy {
    * @return
    */
   public String getValue() {
-      return value;
+    return value;
   }
 }

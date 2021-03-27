@@ -7,8 +7,8 @@ import picture.editor.model.Image;
  */
 public interface IAlgorithm {
   /**
-   * Method to execute algorithm.
-   * @param image
+   * Method to execute algorithms.
+   * @param image the image file.
    */
   void execute(Image image);
 }

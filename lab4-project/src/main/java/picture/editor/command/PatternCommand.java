@@ -8,15 +8,15 @@ import picture.editor.IEnhancedImageBuilder;
 public class PatternCommand extends ACommand {
 
   /**
-   * Parameterized constrictor that accepts enhancedImageBuilder.
-   * @param enhancedImageBuilder
+   * Parameterized constructor that accepts enhancedImageBuilder.
+   * @param enhancedImageBuilder the enhancedImageBuilder given to this PatternCommand.
    */
   public PatternCommand(IEnhancedImageBuilder enhancedImageBuilder) {
-      super(enhancedImageBuilder);
+    super(enhancedImageBuilder);
   }
 
   @Override
   public String execute() {
-      return "";
+    return "";
   }
 }

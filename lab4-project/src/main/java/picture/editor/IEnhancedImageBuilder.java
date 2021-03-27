@@ -9,34 +9,35 @@ import java.io.IOException;
  * Controller class talks to this interface for enhancing image.
  */
 public interface IEnhancedImageBuilder {
+  
   /**
-   * This method is responsible for loading image from path
+   * This method is responsible for loading image from path.
    *
    * @param imgFilePath Image file path
-   * @return builder instance
-   * @throws IOException
+   * @return IEnhancedImageBuilder builder instance
+   * @throws IOException null pointer exception
    */
   IEnhancedImageBuilder loadImage(final String imgFilePath) throws IOException;
 
   /**
    * This method is responsible for adding filter in image.
    *
-   * @param eFilterType
-   * @return
+   * @param eFilterType the type of the filter
+   * @return IEnhancedImageBuilder builder instance
    */
   IEnhancedImageBuilder addFilter(final EFilterType eFilterType);
 
   /**
-   * This method add dither
+   * This method is to apply add dither operation.
    *
    * @param isEssence   Add essence or no
    * @param totalColors Total number of colors
-   * @return builder instance
+   * @return IEnhancedImageBuilder builder instance
    */
   IEnhancedImageBuilder addDither(final boolean isEssence, final int totalColors);
 
   /**
-   * Add image color transformation
+   * This method is to apply Add color transformation operation.
    *
    * @param eColorTransformation type of color transformation
    * @return builder instance
@@ -44,20 +45,20 @@ public interface IEnhancedImageBuilder {
   IEnhancedImageBuilder addColorTransformation(final EColorTransformation eColorTransformation);
 
   /**
-   * Save image on disk
+   * Save image on disk.
    *
-   * @param fileName Image file name
-   * @return builder instance
-   * @throws IllegalArgumentException
-   * @throws IOException
+   * @param fileName The name of the Image file
+   * @return IEnhancedImageBuilder builder instance
+   * @throws IllegalArgumentException if the file doesn't exist
+   * @throws IOException null pointer exception
    */
   IEnhancedImageBuilder saveImage(String fileName) throws IllegalArgumentException, IOException;
 
   /**
-   * Add mosaic effect w.r.t total number of seeds
+   * Add mosaic effect w.r.t total number of seeds.
    *
    * @param seeds Number of seed
-   * @return builder instance
+   * @return IEnhancedImageBuilder builder instance
    */
   IEnhancedImageBuilder addMosaic(final int seeds);
 
@@ -70,9 +71,9 @@ public interface IEnhancedImageBuilder {
   IEnhancedImageBuilder addPixelation(final int square);
 
   /**
-   * Build image, should be called before save
+   * Build image, should be called before save.
    *
-   * @return builder instance
+   * @return IEnhancedImageBuilder builder instance
    */
   IEnhancedImageBuilder build();
 }

@@ -9,9 +9,9 @@ import picture.editor.model.EColorTransformation;
 public class SepiaCommand extends ACommand {
 
   /**
-   * Parameterized constrictor that accepts following.
+   * Parameterized constructor that accepts following enhancedImageBuilder.
    *
-   * @param enhancedImageBuilder
+   * @param enhancedImageBuilder the enhancedImageBuilder given to this SepiaCommand
    */
   public SepiaCommand(IEnhancedImageBuilder enhancedImageBuilder) {
     super(enhancedImageBuilder);

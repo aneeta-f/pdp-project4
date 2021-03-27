@@ -5,7 +5,7 @@ import picture.editor.model.EOperationType;
 /**
  * This class is responsible for generating image pattern.
  */
-public class ImagePatternGeneration extends AImageOperation{
+public class ImagePatternGeneration extends AImageOperation {
   @Override
   public void preProcessing() {
 

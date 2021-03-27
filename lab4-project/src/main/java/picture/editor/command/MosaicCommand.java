@@ -10,9 +10,10 @@ public class MosaicCommand extends ACommand {
   private final int seeds;
 
   /**
-   * Parameterized constrictor that accepts following.
-   * @param enhancedImageBuilder
-   * @param seeds
+   * Parameterized constructor that accepts enhancedImageBuilder and seeds.
+   * 
+   * @param enhancedImageBuilder the enhancedImageBuilder given to this MosaicCommand.
+   * @param seeds the seeds given to this MosaicCommand.
    */
   public MosaicCommand(IEnhancedImageBuilder enhancedImageBuilder, final int seeds) {
     super(enhancedImageBuilder);

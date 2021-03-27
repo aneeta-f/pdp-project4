@@ -9,7 +9,7 @@ public class FileUtils {
   /**
    * Method this responsible for checking either file exists or no.
    *
-   * @param filePath
+   * @param filePath the filePath given to this FileUtils
    * @return
    */
   public static boolean isFileExist(String filePath) {
@@ -19,7 +19,7 @@ public class FileUtils {
   /**
    * Return file name from path.
    *
-   * @param filePath
+   * @param filePath the filePath given to this FileUtils
    * @return
    */
   public static String getFileNameFromPath(String filePath) {
@@ -29,7 +29,7 @@ public class FileUtils {
   /**
    * Return directory from path.
    *
-   * @param filePath
+   * @param filePath the filePath given to this FileUtils
    * @return
    */
   public static String getDirFromPath(String filePath) {

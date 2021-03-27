@@ -32,7 +32,7 @@ public abstract class AImageOperation {
 
   /**
    * This method is responsible for performing clamping.
-   * @param image
+   * @param image the image given to this AImageOperation.
    */
   void performClamping(Image image) {
     int[][][] rgbMatrix = image.getRgbMatrix();
@@ -60,6 +60,16 @@ public abstract class AImageOperation {
   int getColumns(final double[][] matrix) {
     return matrix.length;
   }
+  
+  /**
+   * This function is responsible for finding matrix total columns.
+   *
+   * @param matrix Provided input matrix
+   * @return Total number of columns in a matrix
+   */
+  int getColumns(final int[][] matrix) {
+    return matrix.length;
+  }
 
   /**
    * This method is responsible for finding total number of columns in a matrix.
@@ -74,17 +84,7 @@ public abstract class AImageOperation {
     }
     return matrix[0].length;
   }
-
-  /**
-   * This function is responsible for finding matrix total columns.
-   *
-   * @param matrix Provided input matrix
-   * @return Total number of columns in a matrix
-   */
-  int getColumns(final int[][] matrix) {
-    return matrix.length;
-  }
-
+  
   /**
    * This method is responsible for finding total number of rows in a matrix.
    *
