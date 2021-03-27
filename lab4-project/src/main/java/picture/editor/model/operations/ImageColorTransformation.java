@@ -14,20 +14,23 @@ import java.util.Map;
  *
  */
 public class ImageColorTransformation extends AImageOperation {
-  private final Image inputImage;
   private final EColorTransformation eColorTransformation;
   private final Map<EColorTransformation, float[][]> mapColorTransformationMatrix;
 
   /**
-   * Construct a ImageColorTransformation object that has the provided inputImage 
+   * Construct a ImageColorTransformation object that has the provided inputImage
    * and eColorTransformation..
    *
-   * @param inputImage the inputImage to be given to this ImageColorTransformation.
-   * @param eColorTransformation the eColorTransformation to be given to this Transformation.  
+   * @param inputImage           the inputImage to be given to this ImageColorTransformation.
+   * @param eColorTransformation the eColorTransformation to be given to this Transformation.
    */
   public ImageColorTransformation(Image inputImage,
-                                EColorTransformation eColorTransformation) {
-    this.inputImage = inputImage;
+                                  EColorTransformation eColorTransformation) {
+    super(inputImage);
+
+    if (eColorTransformation == null) {
+      throw new IllegalArgumentException("Color transformation cannot be null.");
+    }
     this.eColorTransformation = eColorTransformation;
     this.mapColorTransformationMatrix = new LinkedHashMap<>();
     initMapColorTransformationMatrix();
@@ -90,12 +93,12 @@ public class ImageColorTransformation extends AImageOperation {
 
   /**
    * This method is responsible for validating provided transformation matrix.
-   * 
-   * @param transformationMatrix      Input transformation matrix
+   *
+   * @param transformationMatrix Input transformation matrix
    * @throws IllegalArgumentException Throws exception when either row/columns are not 3
    */
-  protected void validateTransformationMatrix(float[][] transformationMatrix) 
-      throws IllegalArgumentException {
+  protected void validateTransformationMatrix(float[][] transformationMatrix)
+          throws IllegalArgumentException {
     int rows = transformationMatrix.length;
     int columns = transformationMatrix[0].length;
 

@@ -11,13 +11,16 @@ public abstract class ACommand {
 
   /**
    * Construct a ACommand object that accepts IEnhancedImageBuilder interface.
-   * 
+   *
    * @param enhancedImageBuilder The enhancedImageBuilder given to this ACommand
    */
   public ACommand(IEnhancedImageBuilder enhancedImageBuilder) {
+    if (enhancedImageBuilder == null) {
+      throw new IllegalArgumentException("Enhanced image builder instance cannot be null.");
+    }
     this.enhancedImageBuilder = enhancedImageBuilder;
   }
-  
+
   /**
    * This function is responsible to execute the image.
    */

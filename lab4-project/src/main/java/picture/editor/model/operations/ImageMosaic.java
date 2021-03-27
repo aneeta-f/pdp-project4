@@ -11,18 +11,21 @@ import picture.editor.model.Image;
  *
  */
 public class ImageMosaic extends AImageOperation {
-  private final Image inputImage;
   private final IChunkingStrategy chunkingStrategy;
 
   /**
-   * Construct a ImageMosaic object that has the provided inputImage 
+   * Construct a ImageMosaic object that has the provided inputImage
    * and seeds..
-   * 
+   *
    * @param inputImage The inputImage given to this ImageMosaic
-   * @param seeds The seeds given to this ImageMosaic
+   * @param seeds      The seeds given to this ImageMosaic
    */
   public ImageMosaic(Image inputImage, final int seeds) {
-    this.inputImage = inputImage;
+    super(inputImage);
+
+    if (seeds < 0) {
+      throw new IllegalArgumentException("Seeds cannot be < 0");
+    }
     chunkingStrategy = new Mosaic(seeds);
   }
 

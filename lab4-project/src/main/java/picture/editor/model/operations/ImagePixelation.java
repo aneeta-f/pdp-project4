@@ -12,18 +12,21 @@ import picture.editor.model.Image;
  *
  */
 public class ImagePixelation extends AImageOperation {
-  private final Image inputImage;
   private final IChunkingStrategy chunkingStrategy;
 
   /**
-   * Construct a ImagePixelation object that has the provided inputImage 
+   * Construct a ImagePixelation object that has the provided inputImage
    * and squares..
-   * 
+   *
    * @param inputImage The inputImage given to this ImagePixelation
-   * @param squares The squares given to this ImagePixelation
+   * @param squares    The squares given to this ImagePixelation
    */
   public ImagePixelation(Image inputImage, final int squares) {
-    this.inputImage = inputImage;
+    super(inputImage);
+
+    if (squares < 0) {
+      throw new IllegalArgumentException("Square cannot be null.");
+    }
     chunkingStrategy = new Pixelation(squares);
   }
 

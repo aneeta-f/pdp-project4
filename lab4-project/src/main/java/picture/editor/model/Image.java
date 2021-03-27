@@ -16,25 +16,28 @@ public class Image {
   /**
    * Construct a Image object that has the provided 3D rgbMatrix..
    *
-   * @param rgbMatrix  the 3D rgbMatrix to be given to this Image.
+   * @param rgbMatrix the 3D rgbMatrix to be given to this Image.
    */
   public Image(int[][][] rgbMatrix) {
+    if (rgbMatrix == null) {
+      throw new IllegalArgumentException("RGN Matrix cannot be null.");
+    }
     this.rgbMatrix = rgbMatrix;
   }
 
   /**
    * Construct another Image object that has the provided filename..
    *
-   * @param filename  the 3D filename to be given to this Image.
-   * @throws IOException if there is an error reading the file. 
+   * @param filename the 3D filename to be given to this Image.
+   * @throws IOException if there is an error reading the file.
    */
   public Image(String filename) throws IOException {
     this(ImageUtilities.readImage(filename));
   }
 
   /**
-   * The getRgbMatrix function is responsible to get 3D matrix 
-   * of red, green and blue. 
+   * The getRgbMatrix function is responsible to get 3D matrix
+   * of red, green and blue.
    *
    * @return the rgbMatrix of this Image.
    */
@@ -44,7 +47,7 @@ public class Image {
 
   /**
    * The method is responsible to return channel matrix.
-   * 
+   *
    * @param channel The channel given to this image
    * @return the channel matrix
    */
@@ -59,8 +62,8 @@ public class Image {
   }
 
   /**
-   * The convertImageInChannelMap function is responsible to 
-   * convert 3D matrix of channel red, green and blue in a map. 
+   * The convertImageInChannelMap function is responsible to
+   * convert 3D matrix of channel red, green and blue in a map.
    *
    * @return the map of each channel of the image.
    */
@@ -77,7 +80,7 @@ public class Image {
 
   /**
    * The width of the image in a file.
-   * 
+   *
    * @return The width of the image contained in the file.
    */
   public int getImageWidth() {
@@ -86,7 +89,7 @@ public class Image {
 
   /**
    * The height of the image in a file.
-   * 
+   *
    * @return The height of the image contained in the file.
    */
   public int getImageHeight() {
@@ -95,14 +98,16 @@ public class Image {
 
   /**
    * The convertChannelMap2Image converts the output image in map .
-   * 
-   * @param channelMap The channelMap of the image.
+   *
+   * @param channelMap     The channelMap of the image.
    * @param refOutputImage The output image.
-   */ 
-  public static void convertChannelMap2Image(Map<ImageUtilities.Channel, int[][]> 
-      channelMap, Image refOutputImage) {
+   */
+  public static void convertChannelMap2Image(
+          Map<ImageUtilities.Channel, int[][]> channelMap,
+          Image refOutputImage) {
     int[][][] image = refOutputImage.getRgbMatrix();
-    for (Map.Entry<ImageUtilities.Channel, int[][]> entry : channelMap.entrySet()) {
+    for (Map.Entry<ImageUtilities.Channel, int[][]> entry :
+            channelMap.entrySet()) {
       int[][] channelMatrix = entry.getValue();
       for (int i = 0; i < channelMatrix.length; ++i) {
         for (int j = 0; j < channelMatrix[0].length; ++j) {

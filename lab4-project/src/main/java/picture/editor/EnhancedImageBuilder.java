@@ -27,7 +27,6 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder {
 
   /**
    * Construct a default EnhancedImageBuilder object..
-   * 
    */
   public EnhancedImageBuilder() {
     this.operations = new LinkedList<>();
@@ -39,6 +38,9 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder {
    * @param imgFilePath Image path given to this EnhancedImageBuilder
    */
   public EnhancedImageBuilder(final String imgFilePath) throws IOException {
+    if (imgFilePath == null || imgFilePath.trim().isEmpty()) {
+      throw new IllegalArgumentException("Image file path cannot be null or empty.");
+    }
     this.operations = new LinkedList<>();
     loadImage(imgFilePath);
   }
@@ -60,46 +62,63 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder {
   }
 
   /**
-   * The addOperation is basically provide the Operations that can be performed in this 
+   * The addOperation is basically provide the Operations that can be performed in this
    * EnhancedImageBuilder.
    *
    * @param imageOperation that can be performed in this EnhancedImageBuilder.
    * @return the IEnhancedImageBuilder of this EnhancedImageBuilder.
    */
   public IEnhancedImageBuilder addOperation(final AImageOperation imageOperation) {
+    if (imageOperation == null) {
+      throw new IllegalArgumentException("Image operation instance cannot be null.");
+    }
     this.operations.add(imageOperation);
     return this;
   }
 
   @Override
   public IEnhancedImageBuilder addFilter(final EFilterType eFilterType) {
+    if (eFilterType == null) {
+      throw new IllegalArgumentException("For image filter eFilterType cannot be null.");
+    }
     this.operations.add(new ImageFilter(image, eFilterType));
     return this;
   }
 
   @Override
   public IEnhancedImageBuilder addColorTransformation(
-      final EColorTransformation eColorTransformation) {
+          final EColorTransformation eColorTransformation) {
+    if (eColorTransformation == null) {
+      throw new IllegalArgumentException("For color transformation eFilterType cannot be null.");
+    }
     this.operations.add(new ImageColorTransformation(image, eColorTransformation));
     return this;
   }
 
   @Override
   public IEnhancedImageBuilder addDither(final boolean isEssence, final int totalColors) {
-
+    if (totalColors < 1) {
+      throw new IllegalArgumentException("For image dither, total colors cannot be < 1.");
+    }
     this.operations.add(new ImageDither(image, isEssence, totalColors));
     return this;
   }
 
   @Override
   public IEnhancedImageBuilder addMosaic(final int seeds) {
+    if (seeds < 0) {
+      throw new IllegalArgumentException("For image mosaic, number of sees cannot be < 0.");
+    }
     this.operations.add(new ImageMosaic(image, seeds));
     return this;
   }
 
   @Override
-  public IEnhancedImageBuilder addPixelation(final int square) {
-    this.operations.add(new ImagePixelation(image, square));
+  public IEnhancedImageBuilder addPixelation(final int squares) {
+    if (squares < 0) {
+      throw new IllegalArgumentException("For image pixelation number of squares cannot be < 0.");
+    }
+    this.operations.add(new ImagePixelation(image, squares));
     return this;
   }
 
@@ -118,6 +137,9 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder {
   @Override
   public IEnhancedImageBuilder saveImage(String fileName) throws IllegalArgumentException,
           IOException {
+    if (fileName == null || fileName.trim().isEmpty()) {
+      throw new IllegalArgumentException("Image file name cannot be null or empty.");
+    }
     if (this.image == null) {
       throw new IllegalArgumentException("Unable to save null image.");
     }

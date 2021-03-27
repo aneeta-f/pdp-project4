@@ -1,6 +1,7 @@
 package picture.editor.model.operations;
 
 import picture.editor.model.EOperationType;
+import picture.editor.model.Image;
 
 /**
  * The class represents a ImagePatternGeneration that extends 
@@ -9,6 +10,17 @@ import picture.editor.model.EOperationType;
  *
  */
 public class ImagePatternGeneration extends AImageOperation {
+
+  /**
+   * Construct a ImageMosaic object that has the provided inputImage
+   * and seeds..
+   *
+   * @param inputImage The inputImage given to this ImagePatternGeneration
+   */
+  public ImagePatternGeneration(Image inputImage) {
+    super(inputImage);
+  }
+
   @Override
   public void preProcessing() {
     System.out.println("Pre processing: Coming soon");

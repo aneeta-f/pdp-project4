@@ -12,20 +12,22 @@ import java.util.Map;
  *
  */
 public class ImageDither extends AImageOperation {
-  protected final Image inputImage;
   private final boolean isEssence;
   private final int totalColors;
 
   /**
-   * Construct a ImageDither object that has provided inputImage, 
+   * Construct a ImageDither object that has provided inputImage,
    * isEssence and totalColors.
-   * 
-   * @param inputImage the inputImage given to the ImageDither
-   * @param isEssence the isEssence given to the ImageDither
+   *
+   * @param inputImage  the inputImage given to the ImageDither
+   * @param isEssence   the isEssence given to the ImageDither
    * @param totalColors the totalColors given to the ImageDither
    */
   public ImageDither(Image inputImage, boolean isEssence, int totalColors) {
-    this.inputImage = inputImage;
+    super(inputImage);
+    if (totalColors < 1) {
+      throw new IllegalArgumentException("Total colors for image dither cannot be null.");
+    }
     this.isEssence = isEssence;
     this.totalColors = totalColors;
   }
@@ -70,8 +72,8 @@ public class ImageDither extends AImageOperation {
 
   @Override
   public void executeOperation() {
-    final Map<ImageUtilities.Channel, int[][]> channelMap = 
-        this.inputImage.convertImageInChannelMap();
+    final Map<ImageUtilities.Channel, int[][]> channelMap =
+            this.inputImage.convertImageInChannelMap();
     for (Map.Entry<ImageUtilities.Channel, int[][]> entry : channelMap.entrySet()) {
       int[][] channelMatrix = entry.getValue();
       int height = channelMatrix.length;

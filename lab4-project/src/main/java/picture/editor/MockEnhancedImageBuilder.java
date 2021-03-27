@@ -13,11 +13,10 @@ public class MockEnhancedImageBuilder implements IEnhancedImageBuilder {
   private StringBuilder log;
 
   /**
-   * Construct a MockEnhancedImageBuilder object that has the 
+   * Construct a MockEnhancedImageBuilder object that has the
    * provided log and uniqueCode..
    *
-   * @param log        String builder of the purpose of logs.
-   * @param uniqueCode The code given to this MockEnhancedImageBuilder.
+   * @param log String builder of the purpose of logs.
    */
   public MockEnhancedImageBuilder(StringBuilder log) {
     this.log = log;
@@ -48,8 +47,8 @@ public class MockEnhancedImageBuilder implements IEnhancedImageBuilder {
   }
 
   @Override
-  public IEnhancedImageBuilder saveImage(String fileName) throws 
-      IllegalArgumentException, IOException {
+  public IEnhancedImageBuilder saveImage(String fileName) throws
+          IllegalArgumentException, IOException {
     log.append("Saving image: " + fileName + "\n");
     return this;
   }

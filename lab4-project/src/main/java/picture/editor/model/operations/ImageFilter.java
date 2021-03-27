@@ -15,20 +15,21 @@ import java.util.Map;
  *
  */
 public class ImageFilter extends AImageOperation {
-  private final Image inputImage;
   private final Map<EFilterType, double[][]> mapFilterTypeKernel;
   private final EFilterType eFilterType;
 
   /**
-   * Construct a ImageFilter object that has the provided inputImage 
+   * Construct a ImageFilter object that has the provided inputImage
    * and eFilterType..
    *
-   * @param inputImage the inputImage to be given to this ImageFilter.
+   * @param inputImage  the inputImage to be given to this ImageFilter.
    * @param eFilterType the eFilterType to be given to this ImageFilter.
-   * 
    */
   public ImageFilter(Image inputImage, EFilterType eFilterType) {
-    this.inputImage = inputImage;
+    super(inputImage);
+    if (eFilterType == null) {
+      throw new IllegalArgumentException("Filter type cannot be null");
+    }
     this.eFilterType = eFilterType;
     this.mapFilterTypeKernel = new HashMap<>();
     this.initMapFilterTypeKernel();
@@ -59,7 +60,7 @@ public class ImageFilter extends AImageOperation {
 
   /**
    * Get the type of the filter.
-   * 
+   *
    * @return the type of the filter
    */
   public EFilterType getFilterType() {
@@ -74,8 +75,8 @@ public class ImageFilter extends AImageOperation {
   private int getPixelValue(final int pixelCol, final int pixelRow, final int[][] channelMatrix) {
     int channelMatrixRows = getRows(channelMatrix);
     int channelMatrixColumns = getColumns(channelMatrix);
-    if (pixelCol < 0 || pixelRow < 0 || pixelRow >= channelMatrixRows 
-        || pixelCol >= channelMatrixColumns) {
+    if (pixelCol < 0 || pixelRow < 0 || pixelRow >= channelMatrixRows
+            || pixelCol >= channelMatrixColumns) {
       return 0;
     } else {
       return channelMatrix[pixelCol][pixelRow];
@@ -131,7 +132,7 @@ public class ImageFilter extends AImageOperation {
 
   /**
    * This method is responsible for validating input kernel.
-   * 
+   *
    * @param inputKernel The inputKernel given to this ImageFilter
    * @throws IllegalArgumentException Throws exception when matrix is not square
    */
