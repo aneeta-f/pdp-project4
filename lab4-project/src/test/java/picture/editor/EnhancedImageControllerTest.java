@@ -18,30 +18,47 @@ public class EnhancedImageControllerTest {
   private StringBuilder log;
   private EnhancedImageController enhancedImageController;
 
-
+  /**
+   * This function is responsible for initializing class attributes.
+   */
   @Before
   public void setup() {
     log = new StringBuilder();
     model = new MockEnhancedImageBuilder(log);
   }
-
+  
+  /**
+   * This function is responsible for testing validation of 
+   * nullReaderTest.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void nullReaderTest() {
     StringBuilder out = new StringBuilder();
     enhancedImageController = new EnhancedImageController(null, out);
   }
-
+  
+  /**
+   * This function is responsible for testing validation of nullOutputTest.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void nullOutputTest() {
     Reader in = new StringReader("load file1.png");
     enhancedImageController = new EnhancedImageController(in, null);
   }
-
+  
+  /**
+   * This function is responsible for testing validation of
+   *  bothNullReaderAndOutputTest.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void bothNullReaderAndOutputTest() {
     enhancedImageController = new EnhancedImageController(null, null);
   }
-
+  
+  /**
+   * This function is responsible for testing validation of 
+   * nullBuilderStartTest.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void nullBuilderStartTest() {
     StringBuilder out = new StringBuilder();
@@ -53,7 +70,10 @@ public class EnhancedImageControllerTest {
       ioException.printStackTrace();
     }
   }
-
+  
+  /**
+   * This function is responsible for testing bothNullReaderAndOutputTest.
+   */
   @Test
   public void uploadCommandTest() {
     StringBuilder out = new StringBuilder();
@@ -68,6 +88,9 @@ public class EnhancedImageControllerTest {
     }
   }
 
+  /**
+   * This function is responsible for testing unknownCommandTest
+   */
   @Test
   public void unknownCommandTest() {
     StringBuilder out = new StringBuilder();
@@ -83,6 +106,9 @@ public class EnhancedImageControllerTest {
     }
   }
 
+  /**
+   * This function is responsible for testing saveCommandTest.
+   */
   @Test
   public void saveCommandTest() {
     StringBuilder out = new StringBuilder();
@@ -98,6 +124,9 @@ public class EnhancedImageControllerTest {
     }
   }
 
+  /**
+   * This function is responsible for testing blurCommandTest.
+   */
   @Test
   public void blurCommandTest() {
     StringBuilder out = new StringBuilder();
@@ -105,16 +134,19 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n"
-              + "Adding Filter: BLUR_FILTER\n"
-              + "Building enhanced image: \n"
+      String expected = "Input Image: file.png\n" 
+              + "Adding Filter: BLUR_FILTER\n" 
+              + "Building enhanced image: \n" 
               + "Saving image: blur.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
     }
   }
-
+  
+  /**
+   * This function is responsible for testing greyCommandTest.
+   */
   @Test
   public void greyCommandTest() {
     StringBuilder out = new StringBuilder();
@@ -123,8 +155,8 @@ public class EnhancedImageControllerTest {
     try {
       enhancedImageController.start(model);
       String expected = "Input Image: file.png\n"
-              + "Adding Color Transformation: GREY_SCALE\n"
-              + "Building enhanced image: \n"
+              + "Adding Color Transformation: GREY_SCALE\n" 
+              + "Building enhanced image: \n" 
               + "Saving image: grey.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
@@ -132,6 +164,9 @@ public class EnhancedImageControllerTest {
     }
   }
 
+  /**
+   * This function is responsible for testing sepiaCommandTest.
+   */
   @Test
   public void sepiaCommandTest() {
     StringBuilder out = new StringBuilder();
@@ -139,9 +174,9 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n"
+      String expected = "Input Image: file.png\n" 
               + "Adding Color Transformation: SEPIA_TONE\n"
-              + "Building enhanced image: \n"
+              + "Building enhanced image: \n" 
               + "Saving image: sepia.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
@@ -149,6 +184,9 @@ public class EnhancedImageControllerTest {
     }
   }
 
+  /**
+   * This function is responsible for testing sharpCommandTest.
+   */
   @Test
   public void sharpCommandTest() {
     StringBuilder out = new StringBuilder();
@@ -158,7 +196,7 @@ public class EnhancedImageControllerTest {
       enhancedImageController.start(model);
       String expected = "Input Image: file.png\n"
               + "Adding Filter: SHARP_FILTER\n"
-              + "Building enhanced image: \n"
+              + "Building enhanced image: \n" 
               + "Saving image: sharp.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
@@ -166,6 +204,9 @@ public class EnhancedImageControllerTest {
     }
   }
 
+  /**
+   * This function is responsible for testing mosaicCommandTest.
+   */
   @Test
   public void mosaicCommandTest() {
     StringBuilder out = new StringBuilder();
@@ -183,6 +224,9 @@ public class EnhancedImageControllerTest {
     }
   }
 
+  /**
+   * This function is responsible for testing pixelateCommandTest.
+   */
   @Test
   public void pixelateCommandTest() {
     StringBuilder out = new StringBuilder();
@@ -190,16 +234,19 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n"
-              + "Adding pixelation with squares: 1000\n"
-              + "Building enhanced image: \n"
-              + "Saving image: pixelate.png\n";
+      String expected = "Input Image: file.png\n" 
+             + "Adding pixelation with squares: 1000\n"
+             + "Building enhanced image: \n" 
+             + "Saving image: pixelate.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
     }
   }
 
+  /**
+   * This function is responsible for testing ditherWithEssenceCommandTest.
+   */
   @Test
   public void ditherWithEssenceCommandTest() {
     StringBuilder out = new StringBuilder();
@@ -207,8 +254,8 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n"
-              + "Adding Dither, total colors: 2 essence: true\n"
+      String expected = "Input Image: file.png\n" 
+              + "Adding Dither, total colors: 2 essence: true\n" 
               + "Building enhanced image: \n"
               + "Saving image: dither.png\n";
       assertEquals(expected, log.toString());
@@ -217,6 +264,9 @@ public class EnhancedImageControllerTest {
     }
   }
 
+  /**
+   * This function is responsible for testing ditherWithoutEssenceCommandTest.
+   */
   @Test
   public void ditherWithoutEssenceCommandTest() {
     StringBuilder out = new StringBuilder();
@@ -224,10 +274,10 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n"
-              + "Adding Dither, total colors: 2 essence: false\n"
-              + "Building enhanced image: \n"
-              + "Saving image: dither.png\n";
+      String expected = "Input Image: file.png\n" 
+          + "Adding Dither, total colors: 2 essence: false\n" 
+          + "Building enhanced image: \n" 
+          + "Saving image: dither.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
