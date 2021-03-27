@@ -2,22 +2,29 @@ package picture.editor.command;
 
 import picture.editor.IEnhancedImageBuilder;
 
-public class UploadCommand extends ACommand{
+/**
+ * This class implements 'upload' command.
+ */
+public class UploadCommand extends ACommand {
 
-    private final String imageFilePath;
+  private final String imageFilePath;
 
-    public UploadCommand(final IEnhancedImageBuilder enhancedImageBuilder, final String imageFilePath) {
-        super(enhancedImageBuilder);
-        this.imageFilePath = imageFilePath;
+  /**
+   * Parameterized constrictor that accepts following.
+   * @param enhancedImageBuilder
+   */
+  public UploadCommand(final IEnhancedImageBuilder enhancedImageBuilder, final String imageFilePath) {
+    super(enhancedImageBuilder);
+    this.imageFilePath = imageFilePath;
+  }
+
+  @Override
+  public String execute() {
+    try {
+      this.enhancedImageBuilder.loadImage(this.imageFilePath);
+    } catch (Exception exception) {
+      return "Failed to load input image: " + this.imageFilePath + "\n";
     }
-
-    @Override
-    public String execute() {
-        try {
-            this.enhancedImageBuilder.loadImage(this.imageFilePath);
-        } catch (Exception exception) {
-            return "Failed to load input image: " + this.imageFilePath + "\n";
-        }
-        return "";
-    }
+    return "";
+  }
 }

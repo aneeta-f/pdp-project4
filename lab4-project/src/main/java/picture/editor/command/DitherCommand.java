@@ -2,18 +2,29 @@ package picture.editor.command;
 
 import picture.editor.IEnhancedImageBuilder;
 
-public class DitherCommand extends ACommand{
-    final boolean isEssence;
-    final int totalColors;
-    public DitherCommand(IEnhancedImageBuilder enhancedImageBuilder, final int totalColors, final boolean isEssence) {
-        super(enhancedImageBuilder);
-        this.isEssence = isEssence;
-        this.totalColors = totalColors;
-    }
+/**
+ * This class implements 'dither' command.
+ */
+public class DitherCommand extends ACommand {
+  final boolean isEssence;
+  final int totalColors;
 
-    @Override
-    public String execute() {
-        enhancedImageBuilder.addDither(isEssence, totalColors);
-        return "";
-    }
+  /**
+   * Parameterized constrictor that accepts following.
+   *
+   * @param enhancedImageBuilder
+   * @param totalColors
+   * @param isEssence
+   */
+  public DitherCommand(IEnhancedImageBuilder enhancedImageBuilder, final int totalColors, final boolean isEssence) {
+    super(enhancedImageBuilder);
+    this.isEssence = isEssence;
+    this.totalColors = totalColors;
+  }
+
+  @Override
+  public String execute() {
+    enhancedImageBuilder.addDither(isEssence, totalColors);
+    return "";
+  }
 }

@@ -1,31 +1,34 @@
 package picture.editor.command;
 
+/**
+ * This enum class list all the acceptable commands.
+ */
 public enum CommandType {
-    UPLOAD("upload"),
-    SAVE("save"),
+  UPLOAD("upload"),
+  SAVE("save"),
 
-    BLUR("blur"),
-    SHARP("sharp"),
+  BLUR("blur"),
+  SHARP("sharp"),
 
-    GREY("grey"),
-    SEPIA("sepia"),
+  GREY("grey"),
+  SEPIA("sepia"),
 
-    DITHER("dither"),
+  DITHER("dither"),
 
-    MOSAIC("mosaic"),
-    PIXELATE("pixelate"),
-    PATTERN("pattern"),
+  MOSAIC("mosaic"),
+  PIXELATE("pixelate"),
+  PATTERN("pattern"),
 
-    QUIT("q"),
-    UNKNOWN("unknown");
+  QUIT("q"),
+  UNKNOWN("unknown");
 
-    private String value;
+  private String value;
 
-    private CommandType(String value) {
-        this.value = value;
-    }
+  private CommandType(String value) {
+    this.value = value;
+  }
 
-    public final String getValue() {
-        return value;
-    }
+  public final String getValue() {
+    return value;
+  }
 }

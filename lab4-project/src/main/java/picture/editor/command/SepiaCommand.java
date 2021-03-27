@@ -3,14 +3,23 @@ package picture.editor.command;
 import picture.editor.IEnhancedImageBuilder;
 import picture.editor.model.EColorTransformation;
 
-public class SepiaCommand extends ACommand{
-    public SepiaCommand(IEnhancedImageBuilder enhancedImageBuilder) {
-        super(enhancedImageBuilder);
-    }
+/**
+ * This class implements 'sepia' command.
+ */
+public class SepiaCommand extends ACommand {
 
-    @Override
-    public String execute() {
-        enhancedImageBuilder.addColorTransformation(EColorTransformation.SEPIA_TONE);
-        return "";
-    }
+  /**
+   * Parameterized constrictor that accepts following.
+   *
+   * @param enhancedImageBuilder
+   */
+  public SepiaCommand(IEnhancedImageBuilder enhancedImageBuilder) {
+    super(enhancedImageBuilder);
+  }
+
+  @Override
+  public String execute() {
+    enhancedImageBuilder.addColorTransformation(EColorTransformation.SEPIA_TONE);
+    return "";
+  }
 }
