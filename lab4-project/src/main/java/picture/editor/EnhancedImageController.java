@@ -25,8 +25,16 @@ public class EnhancedImageController {
    * @param out where to write
    */
   public EnhancedImageController(Readable in, Appendable out) {
+    validate(in, out);
     this.in = in;
     this.out = out;
+  }
+
+  private void validate(Readable in, Appendable out) {
+    if (in == null || out == null) {
+
+      throw new IllegalArgumentException();
+    }
   }
 
   /**
@@ -35,15 +43,19 @@ public class EnhancedImageController {
    * @param model the model to use.
    * @throws IOException if something goes wrong appending to out
    */
-  public void start(EnhancedImageBuilder model) throws IOException {
-    Objects.requireNonNull(model);
+  public void start(IEnhancedImageBuilder model) throws IOException {
+
+    if (model == null) {
+
+      throw new IllegalArgumentException("Model cannot be null");
+    }
     String imageFilePath;
     Scanner scan = new Scanner(this.in);
     while (true) {
 
       String command = scan.next();
       Optional<CommandType> optCommandType = Arrays.stream(
-          CommandType.values()).filter(
+              CommandType.values()).filter(
               commandType -> commandType.getValue().equalsIgnoreCase(command)).findFirst();
 
       CommandType commandType = CommandType.UNKNOWN;
@@ -136,8 +148,8 @@ public class EnhancedImageController {
         reader = new InputStreamReader(System.in);
       }
 
-      EnhancedImageController enhancedImageController = new 
-          EnhancedImageController(reader, System.out);
+      EnhancedImageController enhancedImageController = new
+              EnhancedImageController(reader, System.out);
 
       // Start controller
       enhancedImageController.start(enhancedImageBuilder);

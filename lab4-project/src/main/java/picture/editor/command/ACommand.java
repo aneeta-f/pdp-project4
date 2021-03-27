@@ -13,6 +13,9 @@ public abstract class ACommand {
    * @param enhancedImageBuilder the enhancedImageBuilder given to this ACommand
    */
   public ACommand(IEnhancedImageBuilder enhancedImageBuilder) {
+    if (enhancedImageBuilder == null) {
+      throw new IllegalArgumentException("Enhanced image builder cannot be null");
+    }
     this.enhancedImageBuilder = enhancedImageBuilder;
   }
   
