@@ -10,7 +10,6 @@ import java.io.IOException;
  */
 public class MockEnhancedImageBuilder implements IEnhancedImageBuilder {
   private StringBuilder log;
-  private final int uniqueCode;
 
   /**
    * Parameterized constructor that accepts.
@@ -18,9 +17,8 @@ public class MockEnhancedImageBuilder implements IEnhancedImageBuilder {
    * @param log        String builder of the purpose of logs
    * @param uniqueCode code
    */
-  public MockEnhancedImageBuilder(StringBuilder log, int uniqueCode) {
+  public MockEnhancedImageBuilder(StringBuilder log) {
     this.log = log;
-    this.uniqueCode = uniqueCode;
   }
 
   @Override

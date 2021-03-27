@@ -1,8 +1,7 @@
+package picture.editor;
+
 import org.junit.Before;
 import org.junit.Test;
-import picture.editor.EnhancedImageController;
-import picture.editor.IEnhancedImageBuilder;
-import picture.editor.MockEnhancedImageBuilder;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -22,8 +21,8 @@ public class EnhancedImageControllerTest {
 
   @Before
   public void setup() {
-      log = new StringBuilder();
-      model = new MockEnhancedImageBuilder(log, 1234321);
+    log = new StringBuilder();
+    model = new MockEnhancedImageBuilder(log);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -70,18 +69,6 @@ public class EnhancedImageControllerTest {
   }
 
   @Test
-  public void quitCommandTest() {
-    StringBuilder out = new StringBuilder();
-    Reader in = new StringReader("q");
-    enhancedImageController = new EnhancedImageController(in, out);
-    try {
-      enhancedImageController.start(model);
-    } catch (IOException ioException) {
-      ioException.printStackTrace();
-    }
-  }
-
-  @Test
   public void unknownCommandTest() {
     StringBuilder out = new StringBuilder();
     Reader in = new StringReader("abc q");
@@ -103,8 +90,8 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Building enhanced image: \n" +
-              "Saving image: filename.png\n";
+      String expected = "Building enhanced image: \n"
+              + "Saving image: filename.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
@@ -118,10 +105,10 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n" +
-              "Adding Filter: BLUR_FILTER\n" +
-              "Building enhanced image: \n" +
-              "Saving image: blur.png\n";
+      String expected = "Input Image: file.png\n"
+              + "Adding Filter: BLUR_FILTER\n"
+              + "Building enhanced image: \n"
+              + "Saving image: blur.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
@@ -135,10 +122,10 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n" +
-              "Adding Color Transformation: GREY_SCALE\n" +
-              "Building enhanced image: \n" +
-              "Saving image: grey.png\n";
+      String expected = "Input Image: file.png\n"
+              + "Adding Color Transformation: GREY_SCALE\n"
+              + "Building enhanced image: \n"
+              + "Saving image: grey.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
@@ -152,10 +139,10 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n" +
-              "Adding Color Transformation: SEPIA_TONE\n" +
-              "Building enhanced image: \n" +
-              "Saving image: sepia.png\n";
+      String expected = "Input Image: file.png\n"
+              + "Adding Color Transformation: SEPIA_TONE\n"
+              + "Building enhanced image: \n"
+              + "Saving image: sepia.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
@@ -169,10 +156,10 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n" +
-              "Adding Filter: SHARP_FILTER\n" +
-              "Building enhanced image: \n" +
-              "Saving image: sharp.png\n";
+      String expected = "Input Image: file.png\n"
+              + "Adding Filter: SHARP_FILTER\n"
+              + "Building enhanced image: \n"
+              + "Saving image: sharp.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
@@ -186,10 +173,10 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n" +
-              "Adding mosaic with seeds: 1000\n" +
-              "Building enhanced image: \n" +
-              "Saving image: mosaic.png\n";
+      String expected = "Input Image: file.png\n"
+              + "Adding mosaic with seeds: 1000\n"
+              + "Building enhanced image: \n"
+              + "Saving image: mosaic.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
@@ -203,10 +190,10 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n" +
-              "Adding pixelation with squares: 1000\n" +
-              "Building enhanced image: \n" +
-              "Saving image: pixelate.png\n";
+      String expected = "Input Image: file.png\n"
+              + "Adding pixelation with squares: 1000\n"
+              + "Building enhanced image: \n"
+              + "Saving image: pixelate.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
@@ -220,10 +207,10 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n" +
-              "Adding Dither, total colors: 2 essence: true\n" +
-              "Building enhanced image: \n" +
-              "Saving image: dither.png\n";
+      String expected = "Input Image: file.png\n"
+              + "Adding Dither, total colors: 2 essence: true\n"
+              + "Building enhanced image: \n"
+              + "Saving image: dither.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
@@ -237,10 +224,10 @@ public class EnhancedImageControllerTest {
     enhancedImageController = new EnhancedImageController(in, out);
     try {
       enhancedImageController.start(model);
-      String expected = "Input Image: file.png\n" +
-              "Adding Dither, total colors: 2 essence: false\n" +
-              "Building enhanced image: \n" +
-              "Saving image: dither.png\n";
+      String expected = "Input Image: file.png\n"
+              + "Adding Dither, total colors: 2 essence: false\n"
+              + "Building enhanced image: \n"
+              + "Saving image: dither.png\n";
       assertEquals(expected, log.toString());
     } catch (IOException ioException) {
       ioException.printStackTrace();
