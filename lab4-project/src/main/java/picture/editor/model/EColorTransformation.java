@@ -1,16 +1,23 @@
 package picture.editor.model;
 
+/**
+ * Performs color transformation
+ */
 public enum EColorTransformation {
-    GREY_SCALE("Grey Scale"),
-    SEPIA_TONE("Sepia Tone");
+  GREY_SCALE("Grey Scale"),
+  SEPIA_TONE("Sepia Tone");
 
-    private final String value;
+  private final String value;
 
-    private EColorTransformation(String value) {
-        this.value = value;
-    }
+  private EColorTransformation(String value) {
+      this.value = value;
+  }
 
-    public String getValue() {
+  /**
+   * Return value for color transformation.
+   * @return value for enum
+   */
+  public String getValue() {
         return value;
     }
 }
