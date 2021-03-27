@@ -6,74 +6,80 @@ import picture.editor.model.EFilterType;
 import java.io.IOException;
 
 /**
- * Controller class talks to this interface for enhancing image.
+ * The IEnhancedImageBuilder represent the controller interface which 
+ * determines the method for enhancing image.
  */
 public interface IEnhancedImageBuilder {
   
   /**
-   * This method is responsible for loading image from path.
+   * This method is responsible for loading image from the path.
    *
-   * @param imgFilePath Image file path
-   * @return IEnhancedImageBuilder builder instance
+   * @param imgFilePath Image file path given to this IEnhancedImageBuilder.
+   * @return IEnhancedImageBuilder Builder instance of this IEnhancedImageBuilder.
    * @throws IOException null pointer exception
    */
   IEnhancedImageBuilder loadImage(final String imgFilePath) throws IOException;
 
   /**
-   * This method is responsible for adding filter in image.
+   * This method is responsible for applying filter operation 
+   * in the image.
    *
-   * @param eFilterType the type of the filter
-   * @return IEnhancedImageBuilder builder instance
+   * @param eFilterType The type of the filter given to this IEnhancedImageBuilder
+   * @return IEnhancedImageBuilder Builder instance of this IEnhancedImageBuilder.
    */
   IEnhancedImageBuilder addFilter(final EFilterType eFilterType);
 
   /**
-   * This method is to apply add dither operation.
+   * This method is responsible for applying dither operation 
+   * in the image.
    *
-   * @param isEssence   Add essence or no
-   * @param totalColors Total number of colors
-   * @return IEnhancedImageBuilder builder instance
+   * @param isEssence   The isEssence to be given to this FloydSteinbergDither.
+   * @param totalColors The totalColors to be given to this FloydSteinbergDither.
+   * @return IEnhancedImageBuilder Builder instance of this IEnhancedImageBuilder.
    */
   IEnhancedImageBuilder addDither(final boolean isEssence, final int totalColors);
 
   /**
-   * This method is to apply Add color transformation operation.
+   * This method is responsible for applying color transformation 
+   * operation in the image.
    *
-   * @param eColorTransformation type of color transformation
-   * @return builder instance
+   * @param eColorTransformation The eColorTransformation given to this IEnhancedImageBuilder. 
+   * @return IEnhancedImageBuilder Builder instance of this IEnhancedImageBuilder.
    */
   IEnhancedImageBuilder addColorTransformation(final EColorTransformation eColorTransformation);
 
   /**
-   * Save image on disk.
+   * This method is responsible for saving the image in the disk.
    *
-   * @param fileName The name of the Image file
-   * @return IEnhancedImageBuilder builder instance
-   * @throws IllegalArgumentException if the file doesn't exist
-   * @throws IOException null pointer exception
+   * @param fileName The name of the Image file given to this IEnhancedImageBuilder 
+   * @return IEnhancedImageBuilder Builder instance of this IEnhancedImageBuilder.
+   * @throws IllegalArgumentException Throws exception if the file doesn't exist.
+   * @throws IOException Null pointer exception.
    */
   IEnhancedImageBuilder saveImage(String fileName) throws IllegalArgumentException, IOException;
 
   /**
-   * Add mosaic effect w.r.t total number of seeds.
+   * This method is responsible for applying mosaic effect w.r.t 
+   * total number of seeds.
    *
-   * @param seeds Number of seed
-   * @return IEnhancedImageBuilder builder instance
+   * @param seeds  Number of seeds given to this IEnhancedImageBuilder
+   * @return IEnhancedImageBuilder Builder instance of this IEnhancedImageBuilder.
    */
   IEnhancedImageBuilder addMosaic(final int seeds);
 
   /**
-   * Add pixelation on image w.r.t total number of squares provided
+   * This method is responsible for applying pixelation on image w.r.t 
+   * total number of squares provided.
    *
-   * @param square Total number of squares provided.
-   * @return builder instance
+   * @param square Total number of squares given to this IEnhancedImageBuilder.
+   * @return IEnhancedImageBuilder Builder instance of this IEnhancedImageBuilder.
    */
   IEnhancedImageBuilder addPixelation(final int square);
 
   /**
-   * Build image, should be called before save.
+   * Return the builder pattern of images, IEnhancedImageBuilder.
    *
-   * @return IEnhancedImageBuilder builder instance
+   * @return IEnhancedImageBuilder Builder instance of this IEnhancedImageBuilder.
    */
   IEnhancedImageBuilder build();
 }

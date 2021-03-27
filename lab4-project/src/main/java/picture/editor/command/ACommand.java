@@ -3,25 +3,23 @@ package picture.editor.command;
 import picture.editor.IEnhancedImageBuilder;
 
 /**
- * This abstract class is used implement command pattern.
+ * This ACommand represent the abstract class that determines 
+ * the command pattern. A ACommand has a enhancedImageBuilder.
  */
 public abstract class ACommand {
   protected IEnhancedImageBuilder enhancedImageBuilder;
 
   /**
-   * Parameterized constructor that accepts IEnhancedImageBuilder interface.
-   * @param enhancedImageBuilder the enhancedImageBuilder given to this ACommand
+   * Construct a ACommand object that accepts IEnhancedImageBuilder interface.
+   * 
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this ACommand
    */
   public ACommand(IEnhancedImageBuilder enhancedImageBuilder) {
-    if (enhancedImageBuilder == null) {
-      throw new IllegalArgumentException("Enhanced image builder cannot be null");
-    }
     this.enhancedImageBuilder = enhancedImageBuilder;
   }
   
   /**
    * This function is responsible to execute the image.
    */
-
   public abstract String execute();
 }

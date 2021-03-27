@@ -4,14 +4,15 @@ import picture.editor.IEnhancedImageBuilder;
 import picture.editor.model.EColorTransformation;
 
 /**
- * This class implements 'sepia' command.
+ * This class represent the SepiaCommand that extends 
+ * ACommand. A SepiaCommand determines 'sepia' command.
  */
 public class SepiaCommand extends ACommand {
 
   /**
-   * Parameterized constructor that accepts following enhancedImageBuilder.
+   * Construct a SepiaCommand object that accepts enhancedImageBuilder.
    *
-   * @param enhancedImageBuilder the enhancedImageBuilder given to this SepiaCommand
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this SepiaCommand
    */
   public SepiaCommand(IEnhancedImageBuilder enhancedImageBuilder) {
     super(enhancedImageBuilder);

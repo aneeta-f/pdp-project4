@@ -4,13 +4,15 @@ import picture.editor.IEnhancedImageBuilder;
 import picture.editor.model.EFilterType;
 
 /**
- * This class implements 'blur' command.
+ * This class represent the blurCommand that extends ACommand . 
+ * A blurCommand determines the blur effect.
  */
 public class BlurCommand extends ACommand {
 
   /**
-   * Parameterized constrictor that accepts IEnhancedImageBuilder interface.
-   * @param enhancedImageBuilder the enhancedImageBuilder given to this BlurCommand.
+   * Construct the BlurCommand object that accepts IEnhancedImageBuilder interface.
+   * 
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this BlurCommand.
    */
   public BlurCommand(IEnhancedImageBuilder enhancedImageBuilder) {
     super(enhancedImageBuilder);

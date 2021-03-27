@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class represents the implementation of the pixel interface. It is used to store an x and y
- * coordinate for a pixel and its three-channel red green blue values. It contains methods to get
- * the x and y coordinates, as well as a getter for the three-channel color array.
+ * This class represents the implementation of the pixel interface. 
+ * 
  */
 public class Pixel {
 
@@ -26,13 +25,14 @@ public class Pixel {
   private int[] color;
 
   /**
-   * This variable represents all of the pixel colors that are closest to this pixel centroid.
+   * This variable represents all of the pixel colors that are closest to this pixel 
+   * centroid.
    */
   private List<int[]> colors = new ArrayList<>();
 
   /**
-   * This constructor creates a pixel with the given x and y coordinates and a three-channel color
-   * array value.
+   * This constructor creates a pixel with the given x and y 
+   * coordinates and a three-channel color array value.
    *
    * @param x     the x coordinate of this pixel.
    * @param y     the y coordinate of this pixel.
@@ -65,16 +65,16 @@ public class Pixel {
   /**
    * This method gets the three-channel color array for this pixel.
    *
-   * @return an integer array of three values that represent the red, green and blue values for this
-   *         pixel.
+   * @return an integer array of three values that represent the red, green and 
+   *         blue values for this pixel.
    */
   public int[] getColor() {
     return color;
   }
 
   /**
-   * This method gives this pixel a new color value that is the sum of all of the pixels that are
-   * closest to it.
+   * This method gives this pixel a new color value that is the sum of 
+   * all of the pixels that are closest to it.
    *
    * @param rgbColor the three channel values for a pixel.
    */

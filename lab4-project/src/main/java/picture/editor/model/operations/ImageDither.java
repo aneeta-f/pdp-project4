@@ -7,7 +7,9 @@ import picture.editor.utils.ImageUtilities;
 import java.util.Map;
 
 /**
- * This class is responsible for performing dither operation on image.
+ * The class represents a ImageDither that extends AImageOperation. A ImageDither
+ * has a inputImage, isEssence and totalColors.
+ *
  */
 public class ImageDither extends AImageOperation {
   protected final Image inputImage;
@@ -15,7 +17,9 @@ public class ImageDither extends AImageOperation {
   private final int totalColors;
 
   /**
-   * Parameterized constructor that accepts inputImage, isEssence and totalColors.
+   * Construct a ImageDither object that has provided inputImage, 
+   * isEssence and totalColors.
+   * 
    * @param inputImage the inputImage given to the ImageDither
    * @param isEssence the isEssence given to the ImageDither
    * @param totalColors the totalColors given to the ImageDither
@@ -60,7 +64,7 @@ public class ImageDither extends AImageOperation {
 
   @Override
   public void preProcessing() {
-
+    System.out.println("Performing pre processing");
   }
 
 

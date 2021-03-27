@@ -1,7 +1,10 @@
 package picture.editor.model;
 
 /**
- * Performs color transformation.
+ * This class represents enumeration EColorTransformation. 
+ * A enumeration EColorTransformation has a functionality of
+ * GREY_SCALE and SEPIA_TONE.
+ * 
  */
 public enum EColorTransformation {
   GREY_SCALE("Grey Scale"),
@@ -14,8 +17,9 @@ public enum EColorTransformation {
   }
 
   /**
-   * Return value for color transformation.
-   * @return value for enum
+   * Return the value of this EColorTransformation.
+   *
+   * @return the value of this EColorTransformation.
    */
   public String getValue() {
     return value;

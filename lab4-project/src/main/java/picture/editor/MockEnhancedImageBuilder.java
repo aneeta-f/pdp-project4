@@ -6,16 +6,18 @@ import picture.editor.model.EFilterType;
 import java.io.IOException;
 
 /**
- * Mock implementation of IEnhancedImageBuilder.
+ * This class represent the mock class that implements 
+ * IEnhancedImageBuilder. A MockEnhancedImageBuilder has a log and uniqueCode.
  */
 public class MockEnhancedImageBuilder implements IEnhancedImageBuilder {
   private StringBuilder log;
 
   /**
-   * Parameterized constructor that accepts.
+   * Construct a MockEnhancedImageBuilder object that has the 
+   * provided log and uniqueCode..
    *
-   * @param log        String builder of the purpose of logs
-   * @param uniqueCode code
+   * @param log        String builder of the purpose of logs.
+   * @param uniqueCode The code given to this MockEnhancedImageBuilder.
    */
   public MockEnhancedImageBuilder(StringBuilder log) {
     this.log = log;

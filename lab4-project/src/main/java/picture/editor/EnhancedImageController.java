@@ -6,10 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.Scanner;
-
 import picture.editor.command.ACommand;
 import picture.editor.command.BlurCommand;
 import picture.editor.command.CommandType;
@@ -24,17 +22,18 @@ import picture.editor.command.SharpCommand;
 import picture.editor.command.UploadCommand;
 
 /**
- * This class is controller class responsible for handling all the user provided commands.
+ * The class represents a EnhancedImageController. A EnhancedImageController has a 
+ * input to read and output to write the image.
  */
 public class EnhancedImageController {
   private final Readable in;
   private final Appendable out;
 
   /**
-   * Parameterized constructor to create class instance.
+   * Construct a EnhancedImageController object that has the provided input and output..
    *
-   * @param in  from where read
-   * @param out where to write
+   * @param in  in given to this EnhancedImageController
+   * @param out out given to this EnhancedImageController
    */
   public EnhancedImageController(Readable in, Appendable out) {
     validate(in, out);
@@ -50,10 +49,10 @@ public class EnhancedImageController {
   }
 
   /**
-   * Method that gives control to the controller.
+   * This method is responsible that gives control to the controller.
    *
-   * @param model the model to use.
-   * @throws IOException if something goes wrong appending to out
+   * @param model model given to this EnhancedImageController.
+   * @throws IOException if something goes wrong appending to out.
    */
   public void start(IEnhancedImageBuilder model) throws IOException {
 
@@ -68,7 +67,7 @@ public class EnhancedImageController {
       String command = scan.next();
       Optional<CommandType> optCommandType = Arrays.stream(
               CommandType.values()).filter(
-              commandType -> commandType.getValue().equalsIgnoreCase(command)).findFirst();
+                commandType -> commandType.getValue().equalsIgnoreCase(command)).findFirst();
 
       CommandType commandType = CommandType.UNKNOWN;
       if (optCommandType.isPresent()) {
@@ -130,9 +129,8 @@ public class EnhancedImageController {
   }
 
   /**
-   * Main method.
-   *
-   * @param args Input arguments
+   * This represent the main body of the class.
+   * @param args the arguments.
    */
   public static void main(String[] args) {
     try {

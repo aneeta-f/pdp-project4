@@ -1,7 +1,10 @@
 package picture.editor.model;
 
 /**
- * This is responsible for holding enum for chunking strategy.
+ * This class represents enumeration EChunkingStrategy. 
+ * A enumeration EChunkingStrategy has a functionality of
+ * MOSAIC and PIXELATION.
+ * 
  */
 public enum EChunkingStrategy {
   MOSAIC("Mosaic"),
@@ -14,8 +17,9 @@ public enum EChunkingStrategy {
   }
 
   /**
-   * Return value for enum.
-   * @return
+   * Return the value of this EChunkingStrategy.
+   *
+   * @return the value of this EChunkingStrategy.
    */
   public String getValue() {
     return value;

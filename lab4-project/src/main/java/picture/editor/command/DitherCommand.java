@@ -3,18 +3,20 @@ package picture.editor.command;
 import picture.editor.IEnhancedImageBuilder;
 
 /**
- * This class implements 'dither' command.
+ * This class represent the DitherCommand that extends 
+ * ACommand. A DitherCommand has a isEssence and totalColors.
  */
 public class DitherCommand extends ACommand {
   final boolean isEssence;
   final int totalColors;
 
   /**
-   * Parameterized constructor that accepts following.
+   * Construct a DitherCommand object that has the provided
+   * isEssence and totalColors.
    *
-   * @param enhancedImageBuilder the enhancedImageBuilder given to this DitherCommand.
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this DitherCommand.
    * @param totalColors the totalColors given to this DitherCommand.
-   * @param isEssence the isEssence given to this DitherCommand.
+   * @param isEssence The isEssence given to this DitherCommand.
    */
   
   public DitherCommand(IEnhancedImageBuilder enhancedImageBuilder, 

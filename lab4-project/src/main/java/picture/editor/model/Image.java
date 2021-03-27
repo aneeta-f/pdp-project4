@@ -7,39 +7,46 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * This class is represents image model.
+ * The class represents a Image. A Image has a 3D rgbMatrix.
+ *
  */
 public class Image {
   private final int[][][] rgbMatrix;
 
   /**
-   * Parameterized constructor that accepts rgbMatrix.
-   * @param rgbMatrix the rgbMatrix given to this Image
+   * Construct a Image object that has the provided 3D rgbMatrix..
+   *
+   * @param rgbMatrix  the 3D rgbMatrix to be given to this Image.
    */
   public Image(int[][][] rgbMatrix) {
     this.rgbMatrix = rgbMatrix;
   }
 
   /**
-   * Parameterized constructor that accepts image file.
-   * @param filename the filename given to this Image
+   * Construct another Image object that has the provided filename..
+   *
+   * @param filename  the 3D filename to be given to this Image.
+   * @throws IOException if there is an error reading the file. 
    */
   public Image(String filename) throws IOException {
     this(ImageUtilities.readImage(filename));
   }
 
   /**
-   * Returns rgb matrix.
-   * @return
+   * The getRgbMatrix function is responsible to get 3D matrix 
+   * of red, green and blue. 
+   *
+   * @return the rgbMatrix of this Image.
    */
   public int[][][] getRgbMatrix() {
     return rgbMatrix;
   }
 
   /**
-   * Return channel matrix.
-   * @param channel the channel given to this image
-   * @return
+   * The method is responsible to return channel matrix.
+   * 
+   * @param channel The channel given to this image
+   * @return the channel matrix
    */
   private int[][] getChannelMatrix(ImageUtilities.Channel channel) {
     int[][] channelMatrix = new int[rgbMatrix.length][rgbMatrix[0].length];
@@ -52,8 +59,10 @@ public class Image {
   }
 
   /**
-   * Returns image channel map.
-   * @return
+   * The convertImageInChannelMap function is responsible to 
+   * convert 3D matrix of channel red, green and blue in a map. 
+   *
+   * @return the map of each channel of the image.
    */
   public Map<ImageUtilities.Channel, int[][]> convertImageInChannelMap() {
     final Map<ImageUtilities.Channel, int[][]> channelMap = new LinkedHashMap<>();
@@ -67,27 +76,29 @@ public class Image {
   }
 
   /**
-   * Return image width.
-   * @return
+   * The width of the image in a file.
+   * 
+   * @return The width of the image contained in the file.
    */
   public int getImageWidth() {
     return this.rgbMatrix[0].length;
   }
 
   /**
-   * Returns image height.
-   * @return
+   * The height of the image in a file.
+   * 
+   * @return The height of the image contained in the file.
    */
   public int getImageHeight() {
     return this.rgbMatrix.length;
   }
 
   /**
-   * Convert channel map to image.
-   * @param channelMap the channelMap given to this Image
-   * @param refOutputImage the refOutputImage given to this Image
-   */
-  
+   * The convertChannelMap2Image converts the output image in map .
+   * 
+   * @param channelMap The channelMap of the image.
+   * @param refOutputImage The output image.
+   */ 
   public static void convertChannelMap2Image(Map<ImageUtilities.Channel, int[][]> 
       channelMap, Image refOutputImage) {
     int[][][] image = refOutputImage.getRgbMatrix();

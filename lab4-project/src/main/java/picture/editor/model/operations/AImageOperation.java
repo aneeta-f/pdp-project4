@@ -5,34 +5,44 @@ import picture.editor.model.Image;
 import picture.editor.utils.ImageUtilities;
 
 /**
- * This abstract class is responsible for performing image operation.
+ * The AImageOperation represents the abstract class that 
+ * determines the methods that performs in the image.
+ *
  */
 public abstract class AImageOperation {
 
   /**
-   * Performs pre processing operations.
+   * This stage validates all inputs provided by user Validate image file path, 
+   * output file location e.t.c.
+   *
+   * @throws IllegalArgumentException if the no of rows and no columns are not equal.
+   * @throws IllegalArgumentException if the kernel dimensions are not in odd number.
    */
   public abstract void preProcessing();
 
   /**
-   * Executes operations.
+   * This stage executes logic behind enhancement technique.
+   *
    */
   public abstract void executeOperation();
 
   /**
-   * Performs post processing operations.
+   * This stage is responsible for any post processing steps i.e. Clamping e.t.c.
+   *
    */
   public abstract void postProcessing();
 
   /**
-   * This method is responsible for return operation type.
-   * @return EOperationType
+   * Gets the type of operation that can be performed in the image.  
+   *
+   * @return EOperationType.
    */
   public abstract EOperationType getOperationType();
 
   /**
-   * This method is responsible for performing clamping.
-   * @param image the image given to this AImageOperation.
+   * Performing clamping in the image.  
+   *
+   * @param image the input image. 
    */
   void performClamping(Image image) {
     int[][][] rgbMatrix = image.getRgbMatrix();
@@ -53,9 +63,9 @@ public abstract class AImageOperation {
 
   /**
    * This function is responsible for finding matrix total rows.
-   *
-   * @param matrix Provided input matrix
-   * @return Total number of rows in a matrix
+   * 
+   * @param matrix  Provided input matrix
+   * @return        Total number of rows in a matrix
    */
   int getColumns(final double[][] matrix) {
     return matrix.length;
@@ -63,9 +73,9 @@ public abstract class AImageOperation {
   
   /**
    * This function is responsible for finding matrix total columns.
-   *
-   * @param matrix Provided input matrix
-   * @return Total number of columns in a matrix
+   * 
+   * @param matrix  Provided input matrix
+   * @return        Total number of columns in a matrix
    */
   int getColumns(final int[][] matrix) {
     return matrix.length;
@@ -73,9 +83,9 @@ public abstract class AImageOperation {
 
   /**
    * This method is responsible for finding total number of columns in a matrix.
-   *
-   * @param matrix Provided input matrix
-   * @return Total number of columns in a matrix
+   * 
+   * @param matrix  Provided input matrix
+   * @return        Total number of columns in a matrix
    * @throws IllegalArgumentException Throws exception when provided matrix is empty
    */
   int getRows(final double[][] matrix) throws IllegalArgumentException {
@@ -87,9 +97,9 @@ public abstract class AImageOperation {
   
   /**
    * This method is responsible for finding total number of rows in a matrix.
-   *
-   * @param matrix Provided input matrix
-   * @return Total number of rows in a matrix
+   * 
+   * @param matrix  Provided input matrix
+   * @return        Total number of rows in a matrix
    * @throws IllegalArgumentException Throws exception when provided matrix is empty
    */
   int getRows(final int[][] matrix) throws IllegalArgumentException {

@@ -1,7 +1,10 @@
 package picture.editor.model;
 
 /**
- * This class is responsible for pattern gen enums.
+ * This class represents enumeration EPatternGenStrategy. A 
+ * enumeration EPatternGenStrategy has a CLOSEST_COLOR 
+ * and TEXT_PATTERN operations.
+ * 
  */
 public enum EPatternGenStrategy {
   CLOSEST_COLOR("Closest Color"),
@@ -14,8 +17,9 @@ public enum EPatternGenStrategy {
   }
 
   /**
-   * Returns value.
-   * @return
+   * Return the value of this EPatternGenStrategy .
+   *
+   * @return the value of this EPatternGenStrategy .
    */
   public String getValue() {
     return value;

@@ -6,16 +6,21 @@ import picture.editor.model.EOperationType;
 import picture.editor.model.Image;
 
 /**
- * This class is responsible for generating pixelated image.
+ * The class represents a ImagePixelation that extends 
+ * AImageOperation. A ImagePixelation has inputImage and 
+ * chunkingStrategy.
+ *
  */
 public class ImagePixelation extends AImageOperation {
   private final Image inputImage;
   private final IChunkingStrategy chunkingStrategy;
 
   /**
-   * Parameterized constructor that accepts following.
-   * @param inputImage the inputImage given to this ImagePixelation
-   * @param squares the squares given to this ImagePixelation
+   * Construct a ImagePixelation object that has the provided inputImage 
+   * and squares..
+   * 
+   * @param inputImage The inputImage given to this ImagePixelation
+   * @param squares The squares given to this ImagePixelation
    */
   public ImagePixelation(Image inputImage, final int squares) {
     this.inputImage = inputImage;
@@ -24,7 +29,7 @@ public class ImagePixelation extends AImageOperation {
 
   @Override
   public void preProcessing() {
-
+    System.out.println("Pre processing: Coming soon");
   }
 
   @Override

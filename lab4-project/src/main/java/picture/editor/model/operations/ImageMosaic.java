@@ -6,16 +6,20 @@ import picture.editor.model.EOperationType;
 import picture.editor.model.Image;
 
 /**
- * This class is responsible for performing image mosaic.
+ * The class represents a ImageMosaic that extends AImageOperation. A ImageMosaic 
+ * has a inputImage and chunkingStrategy.
+ *
  */
 public class ImageMosaic extends AImageOperation {
   private final Image inputImage;
   private final IChunkingStrategy chunkingStrategy;
 
   /**
-   * Parameterized constructor that accepts following.
-   * @param inputImage the inputImage given to this ImageMosaic
-   * @param seeds the seeds given to this ImageMosaic
+   * Construct a ImageMosaic object that has the provided inputImage 
+   * and seeds..
+   * 
+   * @param inputImage The inputImage given to this ImageMosaic
+   * @param seeds The seeds given to this ImageMosaic
    */
   public ImageMosaic(Image inputImage, final int seeds) {
     this.inputImage = inputImage;
@@ -24,7 +28,7 @@ public class ImageMosaic extends AImageOperation {
 
   @Override
   public void preProcessing() {
-
+    System.out.println("Performing pre processing");
   }
 
   @Override

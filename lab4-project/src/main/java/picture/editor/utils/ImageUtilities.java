@@ -12,10 +12,9 @@ import javax.imageio.ImageIO;
  * a file.
  */
 public class ImageUtilities {
-  /**
-   * This method represents the enum Channel.
-   */
   
+  /** An enumeration of the different channels in our images. 
+   */
   public enum Channel {
     RED, GREEN, BLUE
   }

@@ -4,13 +4,15 @@ import picture.editor.IEnhancedImageBuilder;
 import picture.editor.model.EFilterType;
 
 /**
- * This class implements 'sharp' command.
+ * This class represent the SharpCommand that extends 
+ * ACommand. A SharpCommand determines 'sharp' command.
  */
 public class SharpCommand extends ACommand {
 
   /**
-   * Parameterized constructor that accepts enhancedImageBuilder.
-   * @param enhancedImageBuilder the enhancedImageBuilder given to this SharpCommand.
+   * Construct a SharpCommand object that accepts enhancedImageBuilder.
+   * 
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this SharpCommand.
    */
   public SharpCommand(IEnhancedImageBuilder enhancedImageBuilder) {
     super(enhancedImageBuilder);

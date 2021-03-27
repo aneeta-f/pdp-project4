@@ -4,13 +4,16 @@ import picture.editor.IEnhancedImageBuilder;
 import picture.editor.model.EColorTransformation;
 
 /**
- * This class implements 'grey' command.
+ * This class represents the GreyCommand that extends 
+ * ACommand. A GreyCommand determines 'grey' effect.
  */
 public class GreyCommand extends ACommand {
 
   /**
-   * Parameterized constructor that accepts IEnhancedImageBuilder interface.
-   * @param enhancedImageBuilder the enhancedImageBuilder given to this GreyCommand.
+   * Construct a GreyCommand object that accepts IEnhancedImageBuilder 
+   * interface.
+   * 
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this GreyCommand.
    */
   public GreyCommand(IEnhancedImageBuilder enhancedImageBuilder) {
     super(enhancedImageBuilder);

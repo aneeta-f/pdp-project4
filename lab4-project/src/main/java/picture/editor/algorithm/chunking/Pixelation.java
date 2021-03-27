@@ -4,29 +4,28 @@ import picture.editor.model.EChunkingStrategy;
 import picture.editor.model.Image;
 
 /**
- * This class is responsible for implementing pixelation chunking strategy.
+ * This class represent the Pixelation that implements 
+ * IChunkingStrategy. A Pixelation class has a square.
  */
 public class Pixelation implements IChunkingStrategy {
   private final int squares;
 
   /**
-   * Parameterized constructor.
-   * @param squares in total
+   * Construct a Pixelation object that has a provided squares.
+   * 
+   * @param squares The total squares given to this Pixelation.
    */
   public Pixelation(int squares) {
     this.squares = squares;
   }
-
 
   @Override
   public EChunkingStrategy getChunkingStrategy() {
     return EChunkingStrategy.PIXELATION;
   }
 
-
   @Override
   public void execute(Image image) {
-    // TODO Auto-generated method stub
-    
+    System.out.println(squares);    
   }
 }

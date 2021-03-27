@@ -3,17 +3,18 @@ package picture.editor.command;
 import picture.editor.IEnhancedImageBuilder;
 
 /**
- * This class implements 'mosaic' command.
+ * This class represent the MosaicCommand that extends 
+ * ACommand. A MosaicCommand has seeds.
  */
 public class MosaicCommand extends ACommand {
 
   private final int seeds;
 
   /**
-   * Parameterized constructor that accepts enhancedImageBuilder and seeds.
+   * Construct a MosaicCommand object that has provided seeds and enhancedImageBuilder.
    * 
-   * @param enhancedImageBuilder the enhancedImageBuilder given to this MosaicCommand.
-   * @param seeds the seeds given to this MosaicCommand.
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this MosaicCommand.
+   * @param seeds The seeds given to this MosaicCommand.
    */
   public MosaicCommand(IEnhancedImageBuilder enhancedImageBuilder, final int seeds) {
     super(enhancedImageBuilder);

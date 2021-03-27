@@ -8,7 +8,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * This class is responsible for performing image color transformation.
+ * The class represents a ImageColorTransformation that extends AImageOperation. 
+ * A ImageColorTransformation has a inputImage, eColorTransformation 
+ * and a mapColorTransformationMatrix.
+ *
  */
 public class ImageColorTransformation extends AImageOperation {
   private final Image inputImage;
@@ -16,10 +19,11 @@ public class ImageColorTransformation extends AImageOperation {
   private final Map<EColorTransformation, float[][]> mapColorTransformationMatrix;
 
   /**
-   * Parameterized constructor that accepts following.
+   * Construct a ImageColorTransformation object that has the provided inputImage 
+   * and eColorTransformation..
    *
-   * @param inputImage the inputImage given to this ImageColorTransformation
-   * @param eColorTransformation the eColorTransformation given to this ImageColorTransformation
+   * @param inputImage the inputImage to be given to this ImageColorTransformation.
+   * @param eColorTransformation the eColorTransformation to be given to this Transformation.  
    */
   public ImageColorTransformation(Image inputImage,
                                 EColorTransformation eColorTransformation) {
@@ -86,8 +90,8 @@ public class ImageColorTransformation extends AImageOperation {
 
   /**
    * This method is responsible for validating provided transformation matrix.
-   *
-   * @param transformationMatrix Input transformation matrix
+   * 
+   * @param transformationMatrix      Input transformation matrix
    * @throws IllegalArgumentException Throws exception when either row/columns are not 3
    */
   protected void validateTransformationMatrix(float[][] transformationMatrix) 

@@ -3,7 +3,8 @@ package picture.editor.command;
 import picture.editor.IEnhancedImageBuilder;
 
 /**
- * This class implements 'save' command.
+ * This class represent the SaveCommand that extends 
+ * ACommand. A SaveCommand has a imageFilePath.
  */
 public class SaveCommand extends ACommand {
 
@@ -11,9 +12,11 @@ public class SaveCommand extends ACommand {
 
 
   /**
-   * Parameterized constructor that accepts enhancedImageBuilder and imageFilePath.
-   * @param enhancedImageBuilder the enhancedImageBuilder given to this SaveCommand 
-   * @param imageFilePath the imageFilePath given to this SaveCommand
+   * Construct the SaveCommand object that accepts 
+   * enhancedImageBuilder and imageFilePath.
+   * 
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this SaveCommand 
+   * @param imageFilePath The imageFilePath given to this SaveCommand
    */
   public SaveCommand(final IEnhancedImageBuilder enhancedImageBuilder, final String imageFilePath) {
     super(enhancedImageBuilder);

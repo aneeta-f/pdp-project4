@@ -1,10 +1,12 @@
 package picture.editor.model;
 
 /**
- * This class hold enum for filter type.
+ * This class represents enumeration EFilterType. A enumeration EFilterType
+ * has a BLUR_FILTER and SHARP_FILTER filters.
+ * 
  */
 public enum EFilterType {
-  BLUR_FILTER( "Blur Filter" ),
+  BLUR_FILTER("Blur Filter"),
   SHARP_FILTER("Sharp Filter");
 
   private final String value;
@@ -14,8 +16,9 @@ public enum EFilterType {
   }
 
   /**
-   * Returns filter type value.
-   * @return
+   * Return the value of this EFilterType.
+   *
+   * @return the value of this EFilterType.
    */
   public String getValue() {
     return value;

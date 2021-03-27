@@ -4,12 +4,15 @@ import picture.editor.model.EPatternGenStrategy;
 import picture.editor.model.Image;
 
 /**
- * This class is responsible for generating text pattern from image.
+ * This class represent the TextPattern that implements 
+ * IPatternGenStrategy. A TextPattern is responsible for 
+ * generating text pattern from the image.
  */
 public class TextPattern implements IPatternGenStrategy {
+  
   @Override
   public void execute(Image image) {
-
+    System.out.println("Coming soon");
   }
 
   @Override

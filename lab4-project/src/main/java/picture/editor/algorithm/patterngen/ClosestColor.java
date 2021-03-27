@@ -4,12 +4,14 @@ import picture.editor.model.EPatternGenStrategy;
 import picture.editor.model.Image;
 
 /**
- * This class is responsible for implementing closest color.
+ * This class represents the ClosestColor that implements 
+ * IPatternGenStrategy. 
  */
 public class ClosestColor implements IPatternGenStrategy {
+  
   @Override
   public void execute(Image image) {
-
+    System.out.println("Coming soon" + image.getImageHeight());
   }
 
   @Override

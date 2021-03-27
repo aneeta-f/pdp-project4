@@ -3,13 +3,15 @@ package picture.editor.command;
 import picture.editor.IEnhancedImageBuilder;
 
 /**
- * This class implements 'pattern' command.
+ * This class represent the PatternCommand that extends 
+ * ACommand. A PatternCommand determines 'pattern' command.
  */
 public class PatternCommand extends ACommand {
 
   /**
-   * Parameterized constructor that accepts enhancedImageBuilder.
-   * @param enhancedImageBuilder the enhancedImageBuilder given to this PatternCommand.
+   * Construct the PatternCommand object that accepts enhancedImageBuilder.
+   * 
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this PatternCommand.
    */
   public PatternCommand(IEnhancedImageBuilder enhancedImageBuilder) {
     super(enhancedImageBuilder);

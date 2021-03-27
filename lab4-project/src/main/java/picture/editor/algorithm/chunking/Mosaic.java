@@ -11,8 +11,8 @@ import picture.editor.utils.Pixel;
 
 
 /**
- * The class represents a Mosaic that implements IChunkingStrategy. A EnhancedImageBuilder 
- * has a seeds.
+ * The class represents a Mosaic that implements IChunkingStrategy. A Mosaic 
+ * class has a seed.
  *
  */
 public class Mosaic implements IChunkingStrategy {
@@ -21,7 +21,7 @@ public class Mosaic implements IChunkingStrategy {
   /**
    * Construct a Mosaic object that has the provided seeds..
    *
-   * @param seeds  the seeds to be given to this Mosaic.
+   * @param seeds  The seeds to be given to this Mosaic.
    * 
    */
   public Mosaic(int seeds) {

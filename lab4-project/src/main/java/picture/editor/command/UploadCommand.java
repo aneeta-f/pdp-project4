@@ -3,15 +3,17 @@ package picture.editor.command;
 import picture.editor.IEnhancedImageBuilder;
 
 /**
- * This class implements 'upload' command.
+ * This class represent the UploadCommand that extends 
+ * ACommand. A UploadCommand determines 'upload' command.
  */
 public class UploadCommand extends ACommand {
 
   private final String imageFilePath;
 
   /**
-   * Parameterized constructor that accepts enhancedImageBuilder.
-   * @param enhancedImageBuilder the enhancedImageBuilder given to this UploadCommand
+   * Construct a UploadCommand object that accepts enhancedImageBuilder.
+   * 
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this UploadCommand
    */
   public UploadCommand(final IEnhancedImageBuilder enhancedImageBuilder, 
       final String imageFilePath) {

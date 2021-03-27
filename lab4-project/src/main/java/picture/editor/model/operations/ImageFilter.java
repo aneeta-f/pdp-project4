@@ -10,7 +10,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * This class is responsible for performing image filtering.
+ * The class represents a ImageFilter that extends AImageOperation. A ImageFilter 
+ * has a inputImage, mapFilterTypeKernel and eFilterType.
+ *
  */
 public class ImageFilter extends AImageOperation {
   private final Image inputImage;
@@ -18,9 +20,12 @@ public class ImageFilter extends AImageOperation {
   private final EFilterType eFilterType;
 
   /**
-   * Parameterized constructor that accepts following.
-   * @param inputImage the inputImage given to this ImageFilter
-   * @param eFilterType the eFilterType given to this ImageFilter
+   * Construct a ImageFilter object that has the provided inputImage 
+   * and eFilterType..
+   *
+   * @param inputImage the inputImage to be given to this ImageFilter.
+   * @param eFilterType the eFilterType to be given to this ImageFilter.
+   * 
    */
   public ImageFilter(Image inputImage, EFilterType eFilterType) {
     this.inputImage = inputImage;
@@ -53,8 +58,9 @@ public class ImageFilter extends AImageOperation {
   }
 
   /**
-   * Return filter type.
-   * @return
+   * Get the type of the filter.
+   * 
+   * @return the type of the filter
    */
   public EFilterType getFilterType() {
     return eFilterType;
@@ -125,8 +131,9 @@ public class ImageFilter extends AImageOperation {
 
   /**
    * This method is responsible for validating input kernel.
-   * @param inputKernel the inputKernel given to this ImageFilter
-   * @throws IllegalArgumentException exception when matrix is not square
+   * 
+   * @param inputKernel The inputKernel given to this ImageFilter
+   * @throws IllegalArgumentException Throws exception when matrix is not square
    */
   protected void validateKernelMatrix(double[][] inputKernel) throws IllegalArgumentException {
 

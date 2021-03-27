@@ -23,7 +23,6 @@ import java.util.List;
  */
 public class EnhancedImageBuilder implements IEnhancedImageBuilder {
   private final List<AImageOperation> operations;
-  private String imgFilePath;
   private Image image;
 
   /**
@@ -37,8 +36,7 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder {
   /**
    * Construct a EnhancedImageBuilder object that has the provided imgFilePath..
    *
-   * @param imgFilePath Image path
-   * @throws IOException can throw reading file.
+   * @param imgFilePath Image path given to this EnhancedImageBuilder
    */
   public EnhancedImageBuilder(final String imgFilePath) throws IOException {
     this.operations = new LinkedList<>();
@@ -56,7 +54,6 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder {
 
   @Override
   public IEnhancedImageBuilder loadImage(final String imgFilePath) throws IOException {
-    this.imgFilePath = imgFilePath;
     this.image = readImage(imgFilePath);
     this.operations.clear();
     return this;

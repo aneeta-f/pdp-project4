@@ -6,13 +6,14 @@ import picture.editor.model.EFilterType;
 import java.io.IOException;
 
 /**
- * This is my old main class that I was using in project 3.
+ * This class represents the old driver class main of project 3.
  */
 public class OldMain {
+  
   /**
-   * Main old for last project.
-   *
-   * @param args the argument given to this class
+   * This represent the main body of the class.
+   * 
+   * @param args the arguments.
    */
   public static void main(String[] args) {
     if (args.length < 1) {

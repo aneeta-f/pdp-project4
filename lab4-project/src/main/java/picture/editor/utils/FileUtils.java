@@ -3,34 +3,33 @@ package picture.editor.utils;
 import java.io.File;
 
 /**
- * This is an utility class responsible for performing file related operations.
+ * The class represents a FileUtils that has a method for file path.
+ * 
  */
 public class FileUtils {
+  
   /**
-   * Method this responsible for checking either file exists or no.
+   * This method is responsible for accessing the file path .
    *
-   * @param filePath the filePath given to this FileUtils
-   * @return
+   * @return the file path of this FileUtils.
    */
   public static boolean isFileExist(String filePath) {
     return new File(filePath).exists() && new File(filePath).isFile();
   }
 
   /**
-   * Return file name from path.
+   * This method is responsible for getting the file name from the path.
    *
-   * @param filePath the filePath given to this FileUtils
-   * @return
+   * @return the name of this FileUtils.
    */
   public static String getFileNameFromPath(String filePath) {
     return new File(filePath).getName();
   }
 
   /**
-   * Return directory from path.
+   * This method is responsible for getting the file directory.
    *
-   * @param filePath the filePath given to this FileUtils
-   * @return
+   * @return the parent file of this FileUtils.
    */
   public static String getDirFromPath(String filePath) {
     return new File(filePath).getParent();

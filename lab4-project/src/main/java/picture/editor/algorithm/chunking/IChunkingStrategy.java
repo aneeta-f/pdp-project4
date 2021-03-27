@@ -2,15 +2,18 @@ package picture.editor.algorithm.chunking;
 
 import picture.editor.algorithm.IAlgorithm;
 import picture.editor.model.EChunkingStrategy;
-import picture.editor.model.Image;
 
 /**
- * This class provide interface for chunking strategies mosaic/pixelation.
+ * This IChunkingStrategy represent the interface that determine the
+ * chunking strategies for the mosaic and pixelation operations.
  */
 public interface IChunkingStrategy extends IAlgorithm {
+  
   /**
-   * Return chunking strategy type.
-   * @return EChunkingStrategy
+   * This method is responsible for getting the type of chunking 
+   * strategy for the image.
+   * 
+   * @return EChunkingStrategy The type of chunking strategy given to this IChunkingStrategy.
    */
   EChunkingStrategy getChunkingStrategy();
 }

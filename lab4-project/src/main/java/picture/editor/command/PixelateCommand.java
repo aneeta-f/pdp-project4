@@ -3,16 +3,18 @@ package picture.editor.command;
 import picture.editor.IEnhancedImageBuilder;
 
 /**
- * This class implements 'pixelate' command.
+ * This class represents the PixelateCommand that extends ACommand. 
+ * A PixelateCommand has squares.
  */
 public class PixelateCommand extends ACommand {
   private final int squares;
 
   /**
-   * Parameterized constructor that accepts following enhancedImageBuilder and squares.
+   * Construct a PixelateCommand object that accepts 
+   * enhancedImageBuilder and squares.
    *
-   * @param enhancedImageBuilder the enhancedImageBuilder given to this PixelateCommand
-   * @param squares the squares given to this PixelateCommand
+   * @param enhancedImageBuilder The enhancedImageBuilder given to this PixelateCommand
+   * @param squares The squares given to this PixelateCommand
    */
   public PixelateCommand(IEnhancedImageBuilder enhancedImageBuilder, final int squares) {
     super(enhancedImageBuilder);

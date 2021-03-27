@@ -1,7 +1,8 @@
 package picture.editor.command;
 
 /**
- * This enum class list all the acceptable commands.
+ * This class represents enumeration CommandType. A enumeration CommandType
+ * has a list of all the acceptable commands.
  */
 public enum CommandType {
   UPLOAD("upload"),
@@ -27,7 +28,12 @@ public enum CommandType {
   private CommandType(String value) {
     this.value = value;
   }
-
+  
+  /**
+   * Return the value of this CommandType.
+   *
+   * @return the value of this CommandType.
+   */
   public final String getValue() {
     return value;
   }
