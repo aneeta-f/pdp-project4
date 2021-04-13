@@ -35,6 +35,6 @@ public class SaveCommand extends ACommand {
     } catch (IOException e) {
       return "Failed to save image: " + this.imageFilePath + "\n" + e.getMessage();
     }
-    return "";
+    return ""; 
   }
 }

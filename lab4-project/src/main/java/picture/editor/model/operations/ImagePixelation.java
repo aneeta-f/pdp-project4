@@ -22,7 +22,7 @@ public class ImagePixelation extends AImageOperation {
    * @param squares    The squares given to this ImagePixelation
    */
   public ImagePixelation(Image inputImage, final int squares) {
-    super(inputImage);
+    super(inputImage); 
 
     if (squares < 0) {
       throw new IllegalArgumentException("Square cannot be null.");

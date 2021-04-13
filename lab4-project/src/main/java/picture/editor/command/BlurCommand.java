@@ -16,7 +16,7 @@ public class BlurCommand extends ACommand {
    */
   public BlurCommand(IEnhancedImageBuilder enhancedImageBuilder) {
     super(enhancedImageBuilder);
-  }
+  } 
 
   @Override
   public String execute() {

@@ -25,7 +25,7 @@ public class Mosaic implements IChunkingStrategy {
    * 
    */
   public Mosaic(int seeds) {
-    this.seeds = seeds;
+    this.seeds = seeds; 
   }
 
   private double euclideanCalculator(int column, int row, Pixel centroid) {
@@ -74,8 +74,6 @@ public class Mosaic implements IChunkingStrategy {
         for (int i = 0; i < seeds; i++) {
           distances.add(euclideanCalculator(column, row, centroids.get(i)));
         }
-        int min = distances.indexOf(Collections.min(distances));
-        centroids.get(min).giveNewColor(imageDeepCopy[row][column]);
       }
     }
     for (int row = 0; row < height; row++) {

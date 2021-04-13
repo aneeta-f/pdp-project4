@@ -21,7 +21,7 @@ public class ImageMosaic extends AImageOperation {
    * @param seeds      The seeds given to this ImageMosaic
    */
   public ImageMosaic(Image inputImage, final int seeds) {
-    super(inputImage);
+    super(inputImage); 
 
     if (seeds < 0) {
       throw new IllegalArgumentException("Seeds cannot be < 0");

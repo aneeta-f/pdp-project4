@@ -22,7 +22,7 @@ public class Image {
     if (rgbMatrix == null) {
       throw new IllegalArgumentException("RGN Matrix cannot be null.");
     }
-    this.rgbMatrix = rgbMatrix;
+    this.rgbMatrix = rgbMatrix;  
   }
 
   /**

@@ -7,7 +7,7 @@ import java.io.IOException;
 
 /**
  * This class represent the mock class that implements 
- * IEnhancedImageBuilder. A MockEnhancedImageBuilder has a log and uniqueCode.
+ * IEnhancedImageBuilder. A MockEnhancedImageBuilder has a log.
  */
 public class MockEnhancedImageBuilder implements IEnhancedImageBuilder {
   private StringBuilder log;
@@ -57,7 +57,7 @@ public class MockEnhancedImageBuilder implements IEnhancedImageBuilder {
   public IEnhancedImageBuilder addMosaic(int seeds) {
     log.append("Adding mosaic with seeds: " + seeds + "\n");
     return this;
-  }
+  } 
 
   @Override
   public IEnhancedImageBuilder addPixelation(int square) {

@@ -51,7 +51,7 @@ public class EnhancedImageController {
   /**
    * This method is responsible that gives control to the controller.
    *
-   * @param model model given to this EnhancedImageController.
+   * @param model  model the model to use.
    * @throws IOException if something goes wrong appending to out.
    */
   public void start(IEnhancedImageBuilder model) throws IOException {
@@ -119,7 +119,7 @@ public class EnhancedImageController {
           return;
         case UNKNOWN:
         default:
-          //I am not throwing unsuported exception here because I don't want to exit my scan here.
+          //I am not throwing unsupported exception here because I don't want to exit my scan here.
           //want to give next try to user.
           this.out.append(String.format("'%s' is unsupported.\n", command));
       }

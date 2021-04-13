@@ -25,7 +25,7 @@ public class EnhancedImageControllerTest {
   public void setup() {
     log = new StringBuilder();
     model = new MockEnhancedImageBuilder(log);
-  }
+  }   
   
   /**
    * This function is responsible for testing validation of 
@@ -72,7 +72,7 @@ public class EnhancedImageControllerTest {
   }
   
   /**
-   * This function is responsible for testing bothNullReaderAndOutputTest.
+   * This function is responsible for testing uploadCommandTest().
    */
   @Test
   public void uploadCommandTest() {

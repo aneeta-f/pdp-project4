@@ -17,7 +17,7 @@ public enum CommandType {
   DITHER("dither"),
 
   MOSAIC("mosaic"),
-  PIXELATE("pixelate"),
+  PIXELATE("pixelate"), 
   PATTERN("pattern"),
 
   QUIT("q"),

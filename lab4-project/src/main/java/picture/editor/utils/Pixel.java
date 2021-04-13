@@ -51,7 +51,7 @@ public class Pixel {
    */
   public int getX() {
     return x;
-  }
+  } 
 
   /**
    * This method gets the y coordinate of this pixel.
