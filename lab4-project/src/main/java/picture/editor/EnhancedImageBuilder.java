@@ -107,7 +107,7 @@ public class EnhancedImageBuilder implements IEnhancedImageBuilder {
   @Override
   public IEnhancedImageBuilder addMosaic(final int seeds) {
     if (seeds < 0) {
-      throw new IllegalArgumentException("For image mosaic, number of sees cannot be < 0.");
+      throw new IllegalArgumentException("For image mosaic, number of seeds cannot be < 0.");
     }
     this.operations.add(new ImageMosaic(image, seeds));
     return this;
